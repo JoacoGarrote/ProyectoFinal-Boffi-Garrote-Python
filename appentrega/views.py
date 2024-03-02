@@ -7,17 +7,6 @@ from appentrega.forms import FormTrabajo, FormEmpresa, BuscarEmpleado
 def inicio(request):
     return render(request, "appentrega/index.html")
 
-def empleados(request):
-    return render(request, "appentrega/empleados.html")
-
-def trabajos(request):
-    return render(request, "appentrega/trabajos.html")
-
-def empresas(request):
-    return render(request, "appentrega/empresas.html")
-
-def buscador(request):
-    return render(request, "appentrega/buscador.html")
 
 
 def form_empleados(request):
