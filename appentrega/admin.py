@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Empleado, Trabajo, Empresa
+from .models import Usuario, Anfitrion, Evento
 
 # Register your models here.
 
-admin.site.register(Empleado)
-admin.site.register(Trabajo)
-admin.site.register(Empresa)
+admin.site.register(Usuario)
+admin.site.register(Anfitrion)
+admin.site.register(Evento)
 
-# SUPERUSUARIO:
-# User - Joaco
-# Password - 123
+# Super
+# super@gmail.com
+# 123456
