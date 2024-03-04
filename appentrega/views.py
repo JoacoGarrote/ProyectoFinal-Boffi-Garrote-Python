@@ -7,8 +7,8 @@ from appentrega.forms import FormTrabajo, FormEmpresa, BuscarEmpleado
 def inicio(request):
     return render(request, "appentrega/index.html")
 
-def evento(request):
-    return render(request, "appentrega/evento.html")
+def eventos(request):
+    return render(request, "appentrega/eventos.html")
 
 def contacto(request):
     return render(request, "appentrega/contacto.html")

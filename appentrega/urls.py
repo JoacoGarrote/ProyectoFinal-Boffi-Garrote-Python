@@ -12,7 +12,7 @@ from appentrega import views
 
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
-    path('evento/', views.inicio, name="Evento"),
+    path('eventos/', views.eventos, name="Eventos"),
     path('contacto/', views.contacto, name="Contacto"),
     path('acerca/', views.acerca, name="AcercaDe"),
 ]
