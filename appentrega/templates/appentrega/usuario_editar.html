@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block main %}
+{% block form %}
     
 <form method="POST">
     {% csrf_token %}
@@ -10,5 +10,5 @@
     <input type="submit" value="Actualizar">
 </form>
 
-{% endblock main %}
+{% endblock form %}
 

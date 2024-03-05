@@ -42,7 +42,7 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Blog</a>
             </li>
-            {# Usuario #}
+            {% comment %} {# Usuario #}
             {% if request.user.is_authenticated %}
             {% if user_avatar %}
                 <img src="{{user_avatar}}" alt="" style="height: 40px;width: 40px;">
@@ -51,10 +51,10 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ request.user.username }}
                 </button>
-                {% comment %} <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{% url 'UsuarioEditar' %}">Editar cuenta</a></li>
                     <li><a class="dropdown-item" href="{% url 'CerrarSesion' %}">Cerrar sesión</a></li>
-                </ul> {% endcomment %}
+                </ul>
             </div>
 
         {% else %}
@@ -68,7 +68,7 @@
                     <li><a class="dropdown-item" href="{% url 'RegistrarUsuario' %}">Crear cuenta</a></li>
                 </ul>
             </div>
-        {% endif %}
+        {% endif %} {% endcomment %}
           </ul>
         </div>
       </div>
@@ -79,6 +79,9 @@
 
     {% block eventos %}
     {% endblock eventos %}
+
+    {% block form %}
+    {% endblock form %}
 
     {% block contacto %}
     {% endblock contacto %}

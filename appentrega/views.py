@@ -7,6 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from users.models import Imagen
+
 
 # Create your views here.
 
@@ -81,7 +83,7 @@ class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
 
 
 # Eventos
-class EventoCreateView(LoginRequiredMixin, CreateView):
+class EventoCreateView( CreateView):
     model = Evento
     template_name = "appentrega/evento_crear.html"
     fields = ["nombre", "categoria", "ubicacion", "fecha"]

@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block main %}
+{% block form %}
 
 <form method="POST">
     {% csrf_token %}
@@ -20,12 +20,12 @@
         <label for="ubicacion">Ubicacion</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="date" class="form-control" id="email" name="email" placeholder="7 de Septiembre, 2008">
-        <label for="mail">Fecha</label>
+        <input type="date" class="form-control" id="fecha" name="fecha" placeholder="7 de Septiembre, 2008">
+        <label for="fecha">Fecha</label>
     </div>
     
     <input type="submit" value="Enviar">
 
 </form>
 
-{% endblock main %}
+{% endblock form %}
