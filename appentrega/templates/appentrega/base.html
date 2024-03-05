@@ -51,10 +51,10 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ request.user.username }}
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% comment %} <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{% url 'UsuarioEditar' %}">Editar cuenta</a></li>
                     <li><a class="dropdown-item" href="{% url 'CerrarSesion' %}">Cerrar sesión</a></li>
-                </ul>
+                </ul> {% endcomment %}
             </div>
 
         {% else %}

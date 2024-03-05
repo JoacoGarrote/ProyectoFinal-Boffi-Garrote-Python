@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = "/users/templates/iniciar_sesion.html"
 
 # Application definition
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Mi aplicacion:
     'appentrega',
+    'users'
 ]
 
 MIDDLEWARE = [

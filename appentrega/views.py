@@ -50,6 +50,8 @@ class UsuarioDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("ListaUsuario")
     template_name = 'AppCoder/usuario_confdel.html'
 
+
+
 # Anfitrion
 class AnfitrionCreateView(LoginRequiredMixin, CreateView):
     model = Anfitrion
@@ -76,6 +78,8 @@ class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("ListaAnfitrion")
     template_name = 'AppCoder/anfitrion_confdel.html'
 
+
+
 # Eventos
 class EventoCreateView(LoginRequiredMixin, CreateView):
     model = Evento
@@ -86,6 +90,9 @@ class EventoCreateView(LoginRequiredMixin, CreateView):
 class EventoListView(LoginRequiredMixin, ListView):
     model = Evento
     template_name = "appentrega/evento_lista.html"
+
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
 class EventoDetailView(LoginRequiredMixin, DetailView):
     model = Evento
