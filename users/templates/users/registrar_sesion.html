@@ -1,0 +1,25 @@
+{% extends 'appentrega/base.html' %}
+
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center">
+
+        <div class="d-flex flex-column">
+
+            <p class="fs-5 fw-bold">{{ msg_register }}</p>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                <input type="submit" value="Registrarse">
+
+            </form>
+
+        </div>
+    </div>
+{% endblock main %}

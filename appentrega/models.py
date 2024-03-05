@@ -17,3 +17,6 @@ class Evento(models.Model):
     categoria = models.CharField(max_length=40)
     ubicacion = models.CharField(max_length=40)
     fecha = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.nombre

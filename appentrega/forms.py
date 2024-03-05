@@ -1,5 +1,8 @@
 from django import forms
 
-class BuscarEvento(forms.Form):
+class CrearEvento(forms.Form):
     nombre = forms.CharField()
     fecha = forms.IntegerField()
+
+class BuscarEvento(forms.Form):
+    nombre = forms.TextInput()
