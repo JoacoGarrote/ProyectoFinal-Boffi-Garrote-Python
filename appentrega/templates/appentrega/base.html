@@ -35,13 +35,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="{% url "Inicio" %}">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url "Eventos" %}">Eventos</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url "ListaEvento" %}">Eventos</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url "Contacto" %}">Contacto</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url "AcercaDe" %}">Acerca de nosotros</a></li>
-            {% comment %} ACA BOTON PERFIl {% endcomment %}
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Blog</a>
-            </li>
             {# Usuario #}
             {% if request.user.is_authenticated %}
             {% if user_avatar %}

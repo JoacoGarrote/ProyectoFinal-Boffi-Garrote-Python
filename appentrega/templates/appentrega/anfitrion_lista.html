@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ anfitrion.apellido }}, {{ anfitrion.nombre }}</h5>
                 <p class="card-text">email: {{ anfitrion.mail }}</p>
-            <a href="{% url 'DetalleAnfitrion' anfitrion %}" class="btn btn-primary">Ver</a>
+            <a href="{% url 'DetalleAnfitrion' anfitrion.id %}" class="btn btn-primary">Ver</a>
             <a href="{% url 'EditarAnfitrion' anfitrion.id %}" class="btn btn-primary">Editar</a>
             <a href="{% url 'EliminarAnfitrion' anfitrion.id %}" class="btn btn-primary">Borrar</a>
             </div>

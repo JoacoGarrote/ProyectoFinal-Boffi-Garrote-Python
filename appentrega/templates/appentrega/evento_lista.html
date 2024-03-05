@@ -4,25 +4,36 @@
 
 {% block form %}
 
-
-<div class="row">
-    {% for evento in object_list %}
-        <div class="card" style="width: 18rem;" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ evento.nombre }}, {{ evento.fecha }}</h5>
-                <p class="card-text">Ubicacion: {{ evento.ubicacion }}</p>
-            <a href="{% url 'DetalleEvento' evento.id %}" class="btn btn-primary">Ver</a>
-            <a href="{% url 'EditarEvento' evento.id %}" class="btn btn-primary">Editar</a>
-            <a href="{% url 'EliminarEvento' evento.id %}" class="btn btn-primary">Borrar</a>
-            </div>
+<div class="container px-4 px-lg-5">
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">¡Bienvenido a Eventísmos!</h1>
+            <p>¡Hola, amantes de los eventos! Este blog es como un backstage exclusivo donde desvelaremos los secretos detrás de los mejores momentos. Desde fiestas elegantes hasta conciertos vibrantes, aquí encontrarás todo lo que necesitas para crear tus propias experiencias inolvidables.</p>
+            <a class="btn btn-primary" href="{% url "CrearEvento" %}">Crear evento</a>
         </div>
-    {% endfor %}
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static "assets/img/bg1.jpg" %}" alt="..." /></div>
+    </div>
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
+    </div>
+    <!-- Content Row-->
+    <div class="row">
+        {% for evento in object_list %}
+            <div class="card" style="width: 18rem;" >
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ evento.nombre }}, {{ evento.fecha }}</h5>
+                    <p class="card-text">Ubicacion: {{ evento.ubicacion }}</p>
+                    <p class="card-text">Descripcion: {{ evento.descripcion }}</p>
+                <a href="{% url 'DetalleEvento' evento.id %}" class="btn btn-primary">Ver</a>
+                <a href="{% url 'EditarEvento' evento.id %}" class="btn btn-primary">Editar</a>
+                <a href="{% url 'EliminarEvento' evento.id %}" class="btn btn-primary">Borrar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
-<a class="btn btn-primary btn-xl rounded-pill mt-5" href="{% url 'CrearEvento' %}">Agregar nuevo</a>
-
 {% endblock form %}
-
-
-# Evento?

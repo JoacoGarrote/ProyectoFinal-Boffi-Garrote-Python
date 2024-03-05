@@ -86,7 +86,7 @@ class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
 class EventoCreateView( CreateView):
     model = Evento
     template_name = "appentrega/evento_crear.html"
-    fields = ["nombre", "categoria", "ubicacion", "fecha"]
+    fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
     success_url = reverse_lazy("ListaEvento")
 
 class EventoListView(LoginRequiredMixin, ListView):
@@ -103,7 +103,7 @@ class EventoDetailView(LoginRequiredMixin, DetailView):
 class EventoUpdateView(LoginRequiredMixin, UpdateView):
     model = Evento
     success_url = reverse_lazy("ListaEvento")
-    fields = ["nombre", "categoria", "ubicacion", "fecha"]
+    fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
     template_name = "appentrega/evento_editar.html"
 
 class EventoDeleteView(LoginRequiredMixin, DeleteView):
