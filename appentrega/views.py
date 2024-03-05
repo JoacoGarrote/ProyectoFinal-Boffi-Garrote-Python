@@ -24,6 +24,7 @@ def acerca(request):
 def eventos(request):
     return render(request, "appentrega/eventos.html")
 
+# Usuario
 class UsuarioCreateView(LoginRequiredMixin, CreateView):
     model = Usuario
     template_name = "appentrega/usuario_crear.html"
@@ -48,3 +49,55 @@ class UsuarioDeleteView(LoginRequiredMixin, DeleteView):
     model = Usuario
     success_url = reverse_lazy("ListaUsuario")
     template_name = 'AppCoder/usuario_confdel.html'
+
+# Anfitrion
+class AnfitrionCreateView(LoginRequiredMixin, CreateView):
+    model = Anfitrion
+    template_name = "appentrega/anfitrion_crear.html"
+    fields = ["nombre", "apellido", "mail"]
+    success_url = reverse_lazy("ListaAnfitrion")
+
+class AnfitrionListView(LoginRequiredMixin, ListView):
+    model = Anfitrion
+    template_name = "appentrega/anfitrion_lista.html"
+
+class AnfitrionDetailView(LoginRequiredMixin, DetailView):
+    model = Anfitrion
+    template_name = "appcoder/anfitrion_detalle.html"
+
+class AnfitrionUpdateView(LoginRequiredMixin, UpdateView):
+    model = Anfitrion
+    success_url = reverse_lazy("ListaAnfitrion")
+    fields = ["nombre", "apellido", "mail"]
+    template_name = "AppCoder/anfitrion_editar.html"
+
+class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
+    model = Anfitrion
+    success_url = reverse_lazy("ListaAnfitrion")
+    template_name = 'AppCoder/anfitrion_confdel.html'
+
+# Eventos
+class EventoCreateView(LoginRequiredMixin, CreateView):
+    model = Evento
+    template_name = "appentrega/evento_crear.html"
+    fields = ["nombre", "categoria", "ubicacion", "fecha"]
+    success_url = reverse_lazy("ListaEvento")
+
+class EventoListView(LoginRequiredMixin, ListView):
+    model = Evento
+    template_name = "appentrega/evento_lista.html"
+
+class EventoDetailView(LoginRequiredMixin, DetailView):
+    model = Evento
+    template_name = "appcoder/evento_detalle.html"
+
+class EventoUpdateView(LoginRequiredMixin, UpdateView):
+    model = Evento
+    success_url = reverse_lazy("ListaEvento")
+    fields = ["nombre", "categoria", "ubicacion", "fecha"]
+    template_name = "AppCoder/evento_editar.html"
+
+class EventoDeleteView(LoginRequiredMixin, DeleteView):
+    model = Evento
+    success_url = reverse_lazy("ListaEvento")
+    template_name = 'AppCoder/evento_confdel.html'

@@ -1,0 +1,28 @@
+{% extends 'appentrega/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+
+<div class="row">
+    {% for evento in object_list %}
+        <div class="card" style="width: 18rem;" >
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ evento.nombre }}, {{ evento.fecha }}</h5>
+                <p class="card-text">Ubicacion: {{ evento.ubicacion }}</p>
+            <a href="{% url 'DetalleEvento' evento %}" class="btn btn-primary">Ver</a>
+            <a href="{% url 'EditarEvento' evento.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'EliminarEvento' evento.id %}" class="btn btn-primary">Borrar</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<a class="btn btn-primary btn-xl rounded-pill mt-5" href="{% url 'CrearEvento' %}">Agregar nuevo</a>
+
+{% endblock main %}
+
+
+# Evento?
