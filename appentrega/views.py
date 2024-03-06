@@ -19,7 +19,10 @@ def contacto(request):
     return render(request, "appentrega/contacto.html")
 
 def about(request):
-    return render(request, "appentrega/about.html") 
+    return render(request, "appentrega/about.html")
+
+def nada(request):
+    return render(request, "appentrega/no_page.html")
 
 #Login Required -- Vistas basadas en clases:
 # @login_required

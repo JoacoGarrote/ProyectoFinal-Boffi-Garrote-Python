@@ -27,10 +27,11 @@
             <div class="card" style="width: 18rem;" >
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{ evento.nombre }}, {{ evento.fecha }}</h5>
-                    <p class="card-text">Ubicacion: {{ evento.ubicacion }}</p>
-                    <p class="card-text">Descripcion: {{ evento.descripcion }}</p>
-                <a href="{% url 'DetalleEvento' evento.id %}" class="btn btn-primary">Ver</a>
+                    <h5 class="card-title">{{ evento.nombre }}</h5>
+                    <p class="card-text"><strong>Fecha: </strong>{{ evento.fecha }}</p> 
+                    <p class="card-text"><strong>Ubicacion: </strong>{{ evento.ubicacion }}</p> 
+                    <p class="card-text"><strong>Descripcion: </strong>{{ evento.descripcion|truncatechars:100 }}</p>
+                <a href="{% url 'DetalleEvento' evento.id %}" class="btn btn-primary">Ver más</a>
                 <a href="{% url 'EditarEvento' evento.id %}" class="btn btn-primary">Editar</a>
                 <a href="{% url 'EliminarEvento' evento.id %}" class="btn btn-primary">Borrar</a>
                 </div>

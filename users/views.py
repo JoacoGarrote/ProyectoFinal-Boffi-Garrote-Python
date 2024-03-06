@@ -42,11 +42,53 @@ def registrar_usuario(request):
     return render(request, "users/registrar_sesion.html", {"form": form, "msg_register": msg_register})
 
 @login_required
+# def editar_usuario(request):
+#     usuario = request.user
+
+#     if request.method == 'POST':
+#         miFormulario = UsuarioEditForm(request.POST, request.FILES)
+
+#         if miFormulario.is_valid():
+#             informacion = miFormulario.cleaned_data
+
+#             if informacion["password1"] != informacion["password2"]:
+#                 datos = {
+#                     "first_name": usuario.first_name,
+#                     "email": usuario.email
+#                 }
+#                 miFormulario = UsuarioEditForm(initial=datos)
+#             else:
+#                 usuario.email = informacion["mail"]
+#                 if informacion["contrasena"]:
+#                     usuario.set_password(informacion["confirmacion"])
+#                 usuario.first_name = informacion["first_name"]
+#                 usuario.last_name = informacion["last_name"]
+#                 usuario.save()
+
+#                 try:
+#                     avatar = Imagen.objects.get(user=usuario)
+#                 except Imagen.DoesNotExist:
+#                     avatar = Imagen(user=usuario, imagen=informacion["imagen"])
+#                     avatar.save()
+#                 else:
+#                     avatar.imagen = informacion["imagen"]
+#                     avatar.save()
+
+#                 return render(request, "appentrega/index.html")
+
+#     else:
+#         datos = {
+#             "first_name": usuario.first_name,
+#             "email": usuario.email
+#         }
+#         miFormulario = UsuarioEditForm(initial=datos)
+
+#     return render(request, "users/editar_usuario.html", {"mi_form": miFormulario, "usuario": usuario})
 def editar_usuario(request):
     usuario = request.user
 
     if request.method == 'POST':
-        miFormulario = UsuarioEditForm(request.POST, request.FILES)
+        miFormulario = UsuarioEditForm(request.POST, request.FILES, instance=usuario)
 
         if miFormulario.is_valid():
             informacion = miFormulario.cleaned_data
@@ -56,11 +98,11 @@ def editar_usuario(request):
                     "first_name": usuario.first_name,
                     "email": usuario.email
                 }
-                miFormulario = UsuarioEditForm(initial=datos)
+                miFormulario = UsuarioEditForm(initial=datos, instance=usuario)
             else:
-                usuario.email = informacion["mail"]
-                if informacion["contrasena"]:
-                    usuario.set_password(informacion["confirmacion"])
+                usuario.email = informacion["email"]
+                if informacion["password1"]:
+                    usuario.set_password(informacion["password1"])
                 usuario.first_name = informacion["first_name"]
                 usuario.last_name = informacion["last_name"]
                 usuario.save()
@@ -81,7 +123,7 @@ def editar_usuario(request):
             "first_name": usuario.first_name,
             "email": usuario.email
         }
-        miFormulario = UsuarioEditForm(initial=datos)
+        miFormulario = UsuarioEditForm(initial=datos, instance=usuario)
 
     return render(request, "users/editar_usuario.html", {"mi_form": miFormulario, "usuario": usuario})
 

@@ -14,15 +14,15 @@
                     <!-- Post title-->
                     <h1 class="fw-bolder mb-1">{{ evento.nombre }}</h1>
                     <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Se realizará el día {{ evento.fecha }}</div>
+                    <div class="fst-italic mb-2">Se realizará el día {{ evento.fecha }}</div>
                     <!-- Post categories-->
-                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ evento.categoria }}</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'ListaEvento' %}">{{ evento.categoria }}</a>
                 </header>
                 <!-- Preview image figure-->
                 <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
                 <!-- Post content-->
                 <section class="mb-5">
-                    <h2 class="fw-bolder mb-4 mt-5">Descripción del Evento</h2>
+                    <h3 class="fw-bolder mb-4 mt-5">Acerca del evento:</h3>
                     <p class="fs-5 mb-4">{{ evento.descripcion }}</p>
                 </section>
             </article>
@@ -76,8 +76,8 @@
                 <div class="card-header">Buscar por categoría:</div>
                 <div class="card-body">
                     <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Cumpleaños..." aria-label="Enter search term..." aria-describedby="button-search" />
-                        <button class="btn btn-primary" id="button-search" type="button">Buscar</button>
+                        <input class="form-control" type="text" placeholder="Cumpleaños..." aria-label="Enter search term..." aria-describedby="button-search"/>
+                        <button class="btn btn-primary" id="button-search" type="button" href="{% url 'ListaEvento' %}">Buscar</button>
                     </div>
                 </div>
             </div>
