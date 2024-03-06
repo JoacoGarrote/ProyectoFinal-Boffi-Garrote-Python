@@ -22,7 +22,7 @@
 </header>
 <!-- Features section-->
 <section class="py-5 border-bottom" id="features">
-    <div class="container px-5 my-5">
+    <div class="container px-5 my-5 d-flex">
         <div class="row gx-5">
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
@@ -45,6 +45,7 @@
         </div>
     </div>
 </section>
+
 <!-- Pricing section-->
 <section class="bg-light py-5 border-bottom">
     <div class="container px-5 my-5">
@@ -52,6 +53,10 @@
             <h2 class="fw-bolder">Elegí un plan, armá tus eventos</h2>
             <p class="lead mb-0">Creá, viví, disfrutá sin límites</p>
         </div>
+        <div class="text-center mb-3">
+            <h5>¡La opción Pro es la más elegida por nuestros usuarios!</h5>
+        </div>
+        <br>
         <div class="row gx-5 justify-content-center">
             <!-- Pricing card free-->
             <div class="col-lg-6 col-xl-4">
@@ -215,7 +220,7 @@
                         <div class="d-flex">
                             <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
                             <div class="ms-4">
-                                <p class="mb-1">"Eventismos ha sido un verdadero salvavidas para mí. Como organizadora de eventos independiente, necesitaba una plataforma que me ayudara a promocionar mis eventos y gestionar las entradas de manera eficiente. Desde que empecé a utilizar Eventismos, he visto un aumento significativo en la asistencia a mis eventos y la retroalimentación de los asistentes ha sido increíblemente positiva. ¡No puedo recomendarlo lo suficiente!"</p>
+                                <p class="mb-1">"Eventismos ha sido un verdadero salvavidas para mí. Como organizadora de eventos independiente, necesitaba una plataforma que me ayudara a promocionar mis eventos y gestionar las entradas de manera eficiente. Desde que empecé a utilizar Eventismos, he visto un aumento significativo en la asistencia a mis eventos y la retroalimentación de los asistentes ha sido increíblemente positiva. ¡No puedo dejar de recomendarlo!"</p>
                                 <div class="small text-muted">Testimonio de Ana Rodríguez, Organizadora de Eventos Independiente:</div>
                             </div>
                         </div>
@@ -247,13 +252,7 @@
         </div>
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
+
                 <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                     <!-- Name input-->
                     <div class="form-floating mb-3">
@@ -280,10 +279,6 @@
                         <label for="message">Mensaje</label>
                         <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                     </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
                     <div class="d-none" id="submitSuccessMessage">
                         <div class="text-center mb-3">
                             <div class="fw-bolder">Form submission successful!</div>
@@ -292,17 +287,16 @@
                             <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                         </div>
                     </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
-                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Enviar</button></div>
+                    <div class="d-grid">
+                        <div class="d-grid">
+                            <a class="btn btn-primary" href="{% url "Nada" %}">Enviar</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
-
 {% endblock form %}
