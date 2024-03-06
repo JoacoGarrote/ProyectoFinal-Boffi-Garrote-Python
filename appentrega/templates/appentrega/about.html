@@ -1,0 +1,308 @@
+{% extends 'appentrega/base.html' %}
+
+{% load static %}
+
+{% block form %}
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <h1 class="display-5 fw-bolder text-white mb-2">"Eventísmos, el punto de encuentro para dar vida a tus ideas."</h1>
+                    <p class="lead text-white-50 mb-4">Descubre eventos únicos y emocionantes cerca de ti o en destinos exóticos. Con una amplia variedad de opciones, siempre encontrarás algo que te inspire y te motive a participar. Desde eventos familiares hasta oportunidades de networking profesional, la diversidad de eventos en Eventismos garantiza que haya algo para todos.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url "ListaEvento" %}">¡Creá tu evento!</a>
+                        <a class="btn btn-outline-light btn-lg px-4" href="#features">¡Aprende más sobre nosotros!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Features section-->
+<section class="py-5 border-bottom" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                <h2 class="h4 fw-bolder">Lautaro Boffi</h2>
+                <p>Soy un apasionado de los eventos y la creatividad. Siempre estoy buscando nuevas experiencias que me inspiren y me permitan conectar con personas de ideas afines. Desde festivales de música hasta eventos culturales y conferencias, me encanta explorar y participar en eventos que despierten mi curiosidad y me hagan sentir parte de algo más grande.</p>
+                <a class="text-decoration-none" href="#!">
+                    Mis redes sociales
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                <h2 class="h4 fw-bolder">Joaquín Garrote</h2>
+                <p>Me considero un aventurero de los eventos, siempre en búsqueda de experiencias que despierten mis sentidos y alimenten mi alma. Desde festivales coloridos hasta eventos culturales llenos de historia, cada encuentro es una oportunidad para sumergirme en nuevas emociones y descubrir la diversidad del mundo que nos rodea.</p>
+                <a class="text-decoration-none" href="#!">
+                    Mis redes sociales
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pricing section-->
+<section class="bg-light py-5 border-bottom">
+    <div class="container px-5 my-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bolder">Elegí un plan, armá tus eventos</h2>
+            <p class="lead mb-0">Creá, viví, disfrutá sin límites</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <!-- Pricing card free-->
+            <div class="col-lg-6 col-xl-4">
+                <div class="card mb-5 mb-xl-0">
+                    <div class="card-body p-5">
+                        <div class="small text-uppercase fw-bold text-muted">Gratis</div>
+                        <div class="mb-3">
+                            <span class="display-4 fw-bold">$0</span>
+                            <span class="text-muted">/ mes.</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                <strong>1 Evento</strong>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Acceso a la plataforma de Eventismos.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Crear y publicar un evento al mes.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Gestión básica de entradas y asistentes.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Funcionalidades limitadas de promoción en redes sociales.
+                            </li>
+                            <li class="mb-2 text-muted">
+                                <i class="bi bi-x"></i>
+                                Eventos ilimitados.
+                            </li>
+                            <li class="mb-2 text-muted">
+                                <i class="bi bi-x"></i>
+                                Soporte personalizado.
+                            </li>
+                            <li class="text-muted">
+                                <i class="bi bi-x"></i>
+                                Estadisticas mensuales.
+                            </li>
+                        </ul>
+                        <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Elegir plan</a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pricing card pro-->
+            <div class="col-lg-6 col-xl-4">
+                <div class="card mb-5 mb-xl-0">
+                    <div class="card-body p-5">
+                        <div class="small text-uppercase fw-bold">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            Pro
+                        </div>
+                        <div class="mb-3">
+                            <span class="display-4 fw-bold">$9.99</span>
+                            <span class="text-muted">/ mes.</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                <strong>4 Eventos</strong>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Acceso completo a todas las características de Eventismos.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Crear y publicar hasta cuatro eventos al mes.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Gestión avanzada de entradas y asistentes.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Herramientas de promoción en redes sociales mejoradas.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Estadísticas detalladas y análisis de rendimiento de eventos.
+                            </li>
+                            <li class="text-muted">
+                                <i class="bi bi-check text-primary"></i>
+                                Eventos ilimitados.
+                            </li>
+                            <li class="text-muted">
+                                <i class="bi bi-x"></i>
+                                Estadisticas mensuales.
+                            </li>
+                        </ul>
+                        <div class="d-grid"><a class="btn btn-primary" href="#!">Elegir plan</a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pricing card enterprise-->
+            <div class="col-lg-6 col-xl-4">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <div class="small text-uppercase fw-bold text-muted">Empresarial</div>
+                        <div class="mb-3">
+                            <span class="display-4 fw-bold">$49.99</span>
+                            <span class="text-muted">/ mes.</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                <strong>Eventos ilimitados</strong>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Acceso completo e ilimitado a todas las características de Eventismos.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Crear y publicar un número <strong>Ilimitado</strong> de eventos.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Gestión avanzada de entradas y asistentes, incluyendo personalización de tickets.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Herramientas avanzadas de promoción en redes sociales y marketing.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Soporte prioritario y asistencia técnica dedicada.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Integraciones personalizadas y opciones de marca blanca disponibles.
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                Estadisticas mensuales.
+                            </li>
+                        </ul>
+                        <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Elegir plan</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonials section-->
+<section class="py-5 border-bottom">
+    <div class="container px-5 my-5 px-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bolder">Testimonios de clientes</h2>
+            <p class="lead mb-0">Todos nuestros clientes son igualmente importantes, sin importar el tamaño de su evento o su trayectoria</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <!-- Testimonial 1-->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
+                            <div class="ms-4">
+                                <p class="mb-1">"Eventismos ha sido un verdadero salvavidas para mí. Como organizadora de eventos independiente, necesitaba una plataforma que me ayudara a promocionar mis eventos y gestionar las entradas de manera eficiente. Desde que empecé a utilizar Eventismos, he visto un aumento significativo en la asistencia a mis eventos y la retroalimentación de los asistentes ha sido increíblemente positiva. ¡No puedo recomendarlo lo suficiente!"</p>
+                                <div class="small text-muted">Testimonio de Ana Rodríguez, Organizadora de Eventos Independiente:</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2-->
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
+                            <div class="ms-4">
+                                <p class="mb-1">"Como empresa que organiza regularmente eventos para nuestros clientes y empleados, necesitábamos una solución integral y fácil de usar para gestionar todo el proceso de planificación y ejecución de eventos. Eventismos nos ha proporcionado exactamente eso y más. Con su plataforma intuitiva y herramientas avanzadas de promoción, hemos podido aumentar la visibilidad de nuestros eventos y mejorar la experiencia de nuestros asistentes. Estamos encantados con los resultados y seguiremos utilizando Eventismos en el futuro."</p>
+                                <div class="small text-muted">Testimonio de InnovateTech, Empresa de Tecnología:</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact section-->
+<section class="bg-light py-5">
+    <div class="container px-5 my-5 px-5">
+        <div class="text-center mb-5">
+            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+            <h2 class="fw-bolder">Hablá directamente con nosotros</h2>
+            <p class="lead mb-0">Estamos encantados de escucharte</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Nombre Completo</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Dirección de correo electrónico</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                        <label for="phone">Número de teléfono</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <label for="message">Mensaje</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Enviar</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock form %}

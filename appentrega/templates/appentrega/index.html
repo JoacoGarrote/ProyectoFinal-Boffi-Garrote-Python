@@ -2,20 +2,22 @@
 
 {% load static %} 
 
-{% block index %} 
+{% block index %}
 
-<html lang="en" class="index-html">
-    <body class="index-body-bg"> 
-        <section class="full-height-section">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-6">
-                        <h1 class="mt-5">The Big Picture</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptates rerum eveniet sapiente repellat esse, doloremque quod recusandae deleniti nostrum assumenda vel beatae sed aut modi nesciunt porro quisquam voluptatem.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
-</html>
-{% endblock index %}
+<body class="index-body-bg">
+    <section class="full-height-section position-relative">
+        <video autoplay muted loop id="video-background" class="fullscreen-video">
+            <source src="{% static "assets/video/videobg.mp4" %}" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+
+        <div class="video-text position-absolute top-50 start-50 translate-middle text-center text-white">
+            <h1 class="mt-5 display-3">Eventísmos</h1>
+            <p class="lead">Descubre los secretos detrás de los mejores eventos.</p>
+        </div>
+    </section>
+</body>
+
+
+{% endblock %}
+
