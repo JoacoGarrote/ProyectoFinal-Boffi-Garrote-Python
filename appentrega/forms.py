@@ -1,5 +1,5 @@
 from django import forms
-from .models import Evento
+from .models import Comentario
 
 class CrearEvento(forms.Form):
     nombre = forms.CharField()
@@ -7,3 +7,11 @@ class CrearEvento(forms.Form):
 
 class BuscarEvento(forms.Form):
     nombre = forms.TextInput()
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['mensaje']
+        widgets = {
+            'mensaje': forms.Textarea(attrs={'cols': 80, 'rows': 5}),
+        }

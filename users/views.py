@@ -49,7 +49,7 @@ def editar_usuario(request):
         form = UserEditForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
             form.save()
-            return redirect("appentrega/index.html")
+            return render(request, 'users/editar_usuario.html')
     else:
         form = UserEditForm(instance=user)
 
@@ -63,7 +63,6 @@ def cambiar_contrasena(request):
             user = form.user
             user.set_password(form.cleaned_data['new_password1'])
             user.save()
-            messages.success(request, 'Tu contraseña ha sido actualizada con éxito.')
             return render(request, 'users/editar_usuario.html')
     else:
         form = PasswordChangeForm(request.user)

@@ -56,8 +56,26 @@
                     </div>
                 </div>
                 <section class="py-4 border-bottom">
-                    <div class="container px-4 px-lg-4 mb-1 mt-0">
-                        <p class="lead fw-normal text-dark-50 mb-0">...</p>
+                    <!-- evento_detalle.html -->
+                    <h3>Agregar Comentario:</h3>
+                    <form method="post" action="{% url 'DetalleEvento' pk=object.pk %}">
+                    {% csrf_token %}
+                    {{ comentario_form.as_p }}
+                    <button type="submit">Enviar Comentario</button>
+                    </form>
+
+                    <div class="comments-section">
+                        <h3>Comentarios:</h3>
+                        {% if object.comentarios.exists %}
+                            {% for comentario in object.comentarios.all %}
+                                <div class="comment">
+                                    <p><strong>{{ comentario.usuario }}</strong>: {{ comentario.mensaje }}</p>
+                                    <small>{{ comentario.fechaComentario }}</small>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No hay comentarios todavía.</p>
+                        {% endif %}
                     </div>
                 </section>
             </div>

@@ -35,7 +35,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mt-0 mb-lg-0 me-5">
             <li class="nav-item"><a class="nav-link" href="{% url "Inicio" %}">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url "ListaEvento" %}">Eventos</a></li>
             {% comment %} <li class="nav-item"><a class="nav-link" href="{% url "Contacto" %}">Contacto</a></li> {% endcomment %}
@@ -44,14 +44,13 @@
             {% if request.user.is_authenticated %}
             {% if user.profile_picture %}
                 <img src="{{user.profile_picture.url}}" alt="" class="rounded-circle profile-picture" style="height: 40px;width: 40px;">
-           
             {% endif %}
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ request.user.username }}
+                   ¡Bienvenido, {{ request.user.username }}!
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{% url 'UsuarioEditar' %}">Editar cuenta</a></li>
+                    <li><a class="dropdown-item" href="{% url 'UsuarioEditar' %}">Tu perfil</a></li>
                     <li><a class="dropdown-item" href="{% url 'CerrarSesion' %}">Cerrar sesión</a></li>
                 </ul>
             </div>
@@ -60,7 +59,7 @@
 
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Cuenta
+                    Acceder
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{% url 'IniciarSesion' %}">Inciar sesión</a></li>

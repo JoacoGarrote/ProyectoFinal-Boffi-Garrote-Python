@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Usuario, Anfitrion, Evento
+from .forms import ComentarioForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormMixin
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
@@ -97,9 +98,32 @@ class EventoListView(ListView):
         return super().get(request, *args, **kwargs)
 
 
-class EventoDetailView(LoginRequiredMixin, DetailView):
+class EventoDetailView(LoginRequiredMixin, FormMixin, DetailView):
     model = Evento
     template_name = "appentrega/evento/evento_detalle.html"
+    form_class = ComentarioForm
+
+    def get_success_url(self):
+        return self.request.path
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.evento = self.get_object()
+        form.instance.usuario = self.request.user
+        form.save()
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comentario_form'] = self.get_form()
+        return context
 
 
 class EventoUpdateView(LoginRequiredMixin, UpdateView):
