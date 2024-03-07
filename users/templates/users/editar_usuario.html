@@ -1,6 +1,6 @@
-{% extends 'appentrega/base.html' %}
+{% extends 'appentrega/base.html' %} 
 
-{% load static %}
+{% load static %} 
 
 {% block form %}
 
@@ -10,41 +10,50 @@
             <div class="card mb-0">
                 <div class="card-header">
                     <div class="text-center my-1">
-                        <h3 class="fw-bolder mb-1 mt-2">Actualizar usuario</h3>
+                        <h3 class="fw-bolder mb-1 mt-2">{{ user.username }}</h3>
                     </div>
                 </div>
-                    <div class="text-center my-0 mt-3">
-                        <p style="font-size: medium;">*Todos los campos son obligatorios para modificar el evento*</p>
+                <div class="text-center my-0 mt-3">
+                    <div class="text-center my-1">
+                        <img class="img-fluid rounded-circle mb-4" src="{{ user.profile_picture }}" alt="Foto de perfil" />
                     </div>
+                    <div class="text-center my-4">
+                        <p class="text-dark-50 mb-4">...</p>
+                    </div>
+                </div>
                 <section class="py-0 border-bottom">
                     <div class="container px-0 px-lg-4 mb-3 mt-0">
                         <div class="text-center my-1">
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Guido Van Rossum">
+                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Ejemplo" value="{{ user.first_name }}">
                                     <label for="first_name">Nombre</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Guido Van Rossum">
+                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Ejemplo" value="{{ user.last_name }}">
                                     <label for="last_name">Apellido</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Guido Van Rossum">
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Ejemplo" value="{{ user.username }}">
                                     <label for="username">Usuario</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="{{ user.email }}">
                                     <label for="email">Correo electrónico</label>
                                 </div>
                                 <div class="form-floating mb-4">
                                     <input type="file" class="form-control" id="profile_picture" name="profile_picture" accept="image/*">
                                     <label for="profile_picture">Foto de perfil</label>
-                                </div>                                
+                                </div>
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="Ejemplo" value="{{ user.description }}">
+                                    <label for="description">Descripción</label>
+                                </div>                               
                                 <div class="text-center my-0 mt-3">
                                     <input type="submit" value="Actualizar" class="btn btn-outline-dark px-3">
                                     <a href="{% url 'ListaEvento' %}" class="btn btn-outline-dark px-3">Volver</a>
-                                    <a href="{% url 'Nada' %}" class="btn btn-outline-dark px-3">Cambiar contraseña</a>
+                                    <a href="{% url 'CambiarContrasena' %}" class="btn btn-outline-dark px-3">Cambiar contraseña</a>
                                 </div>
                             </form>
                         </div>
@@ -54,5 +63,7 @@
         </div>
     </div>
 </section>
+
+
 
 {% endblock form %}

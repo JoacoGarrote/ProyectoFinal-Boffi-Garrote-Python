@@ -1,8 +1,11 @@
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import PasswordChangeView
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from .forms import RegistrationForm, UserEditForm
+from .forms import RegistrationForm, UserEditForm, PasswordChangeForm
+from django.urls import reverse_lazy
+from django.contrib import messages
 
 def registrar_usuario(request):
     if request.method == 'POST':
@@ -51,3 +54,17 @@ def editar_usuario(request):
         form = UserEditForm(instance=user)
 
     return render(request, 'users/editar_usuario.html', {'form': form})
+
+@login_required
+def cambiar_contrasena(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.user
+            user.set_password(form.cleaned_data['new_password1'])
+            user.save()
+            messages.success(request, 'Tu contraseña ha sido actualizada con éxito.')
+            return render(request, 'users/editar_usuario.html')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'users/cambiar_contrasena.html', {'form': form})

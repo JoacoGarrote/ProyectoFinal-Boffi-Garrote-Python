@@ -30,50 +30,50 @@ class UsuarioCreateView(LoginRequiredMixin, CreateView):
 
 class UsuarioListView(LoginRequiredMixin, ListView):
     model = Usuario
-    template_name = "appentrega/usuario_lista.html"
+    template_name = "appentrega/usuario/usuario_lista.html"
 
 class UsuarioDetailView(LoginRequiredMixin, DetailView):
     model = Usuario
-    template_name = "appentrega/usuario_detalle.html"
+    template_name = "appentrega/usuario/usuario_detalle.html"
 
 class UsuarioUpdateView(LoginRequiredMixin, UpdateView):
     model = Usuario
     success_url = reverse_lazy("ListaUsuario")
     fields = ["nombre", "apellido", "mail"]
-    template_name = "appentrega/usuario_editar.html"
+    template_name = "appentrega/usuario/usuario_editar.html"
 
 class UsuarioDeleteView(LoginRequiredMixin, DeleteView):
     model = Usuario
     success_url = reverse_lazy("ListaUsuario")
-    template_name = 'appentrega/usuario_confdel.html'
+    template_name = 'appentrega/usuario/usuario_confdel.html'
 
 
 
 # Anfitrion
 class AnfitrionCreateView(LoginRequiredMixin, CreateView):
     model = Anfitrion
-    template_name = "appentrega/anfitrion_crear.html"
+    template_name = "appentrega/anfitrion/anfitrion_crear.html"
     fields = ["nombre", "apellido", "mail"]
     success_url = reverse_lazy("ListaAnfitrion")
 
 class AnfitrionListView(LoginRequiredMixin, ListView):
     model = Anfitrion
-    template_name = "appentrega/anfitrion_lista.html"
+    template_name = "appentrega/anfitrion/anfitrion_lista.html"
 
 class AnfitrionDetailView(LoginRequiredMixin, DetailView):
     model = Anfitrion
-    template_name = "appentrega/anfitrion_detalle.html"
+    template_name = "appentrega/anfitrion/anfitrion_detalle.html"
 
 class AnfitrionUpdateView(LoginRequiredMixin, UpdateView):
     model = Anfitrion
     success_url = reverse_lazy("ListaAnfitrion")
     fields = ["nombre", "apellido", "mail"]
-    template_name = "appentrega/anfitrion_editar.html"
+    template_name = "appentrega/anfitrion/anfitrion_editar.html"
 
 class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
     model = Anfitrion
     success_url = reverse_lazy("ListaAnfitrion")
-    template_name = 'appentrega/anfitrion_confdel.html'
+    template_name = 'appentrega/anfitrion/anfitrion_confdel.html'
 
 
 
@@ -81,7 +81,7 @@ class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
 
 class EventoCreateView(LoginRequiredMixin, CreateView):
     model = Evento
-    template_name = "appentrega/evento_crear.html"
+    template_name = "appentrega/evento/evento_crear.html"
     fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
     success_url = reverse_lazy("ListaEvento")
     login_url = reverse_lazy("Nada")
@@ -91,7 +91,7 @@ class EventoCreateView(LoginRequiredMixin, CreateView):
 
 class EventoListView(ListView):
     model = Evento
-    template_name = "appentrega/evento_lista.html"
+    template_name = "appentrega/evento/evento_lista.html"
 
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
@@ -99,17 +99,17 @@ class EventoListView(ListView):
 
 class EventoDetailView(LoginRequiredMixin, DetailView):
     model = Evento
-    template_name = "appentrega/evento_detalle.html"
+    template_name = "appentrega/evento/evento_detalle.html"
 
 
 class EventoUpdateView(LoginRequiredMixin, UpdateView):
     model = Evento
     success_url = reverse_lazy("ListaEvento")
     fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
-    template_name = "appentrega/evento_editar.html"
+    template_name = "appentrega/evento/evento_editar.html"
 
 
 class EventoDeleteView(LoginRequiredMixin, DeleteView):
     model = Evento
     success_url = reverse_lazy("ListaEvento")
-    template_name = 'appentrega/evento_confdel.html'
+    template_name = 'appentrega/evento/evento_confdel.html'
