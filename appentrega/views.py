@@ -21,6 +21,11 @@ def about(request):
 def nada(request):
     return render(request, "appentrega/no_page.html")
 
+# def filtrar_por_categoria(request, categoria):
+#     eventos = Evento.objects.filter(categoria=categoria)
+#     categorias = ["Sin categoría", "Festival Corporativo", "Festival Musical", "Festival Cine", "Festival Gastronomico", "Festival Deportivo"]
+
+#     return render(request, "'appentrega/evento_lista.html", {'eventos': eventos, 'categorias': categorias})
 
 # Usuario
 class UsuarioCreateView(LoginRequiredMixin, CreateView):
@@ -83,9 +88,10 @@ class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
 class EventoCreateView(LoginRequiredMixin, CreateView):
     model = Evento
     template_name = "appentrega/evento/evento_crear.html"
-    fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
+    fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion", "imagen"]
     success_url = reverse_lazy("ListaEvento")
     login_url = reverse_lazy("Nada")
+
     widgets = {
         "categoria": forms.Select(attrs={'class': 'form-control'}),
     }
@@ -129,7 +135,7 @@ class EventoDetailView(LoginRequiredMixin, FormMixin, DetailView):
 class EventoUpdateView(LoginRequiredMixin, UpdateView):
     model = Evento
     success_url = reverse_lazy("ListaEvento")
-    fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
+    fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion", "imagen"]
     template_name = "appentrega/evento/evento_editar.html"
 
 
@@ -137,3 +143,32 @@ class EventoDeleteView(LoginRequiredMixin, DeleteView):
     model = Evento
     success_url = reverse_lazy("ListaEvento")
     template_name = 'appentrega/evento/evento_confdel.html'
+
+
+
+# Categorias
+    
+# gastronomicos
+def gastronomicos(request):
+    return render(request, "appentrega/evento/categorias/gastronomicos.html")
+
+# corporativos
+def corporativos(request):
+    return render(request, "appentrega/evento/categorias/corporativos.html")
+
+# musicales
+def musicales(request):
+    return render(request, "appentrega/evento/categorias/musicales.html")
+
+# cineastas
+def cineastas(request):
+    return render(request, "appentrega/evento/categorias/cineastas.html")
+
+#deportivos
+def deportivos(request):
+    return render(request, "appentrega/evento/categorias/deportivos.html")
+
+#sin categoria
+def sin_categoria(request):
+    return render(request, "appentrega/evento/categorias/sin_categoria.html")
+    corporativos

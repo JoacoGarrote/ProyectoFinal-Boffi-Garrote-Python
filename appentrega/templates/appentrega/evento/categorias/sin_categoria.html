@@ -4,7 +4,7 @@
 
 {% block titulo_pestana %}
 
-<title>Eventismos | Eventos</title>
+<title>Eventismos | Sin Categoria</title>
 
 {% endblock titulo_pestana %}
 
@@ -16,50 +16,20 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <div class="text-center mb-0 mt-4">
-                    <h1 class="display-7 fw-bolder text-white mb-2">Eventísmos</h1>
+                    <h1 class="display-7 fw-bolder text-white mb-2">Eventos Sin Categoria</h1>
                 </div>
                 <div class="text-center mb-5 mt-0">
-                    <p class="lead fw-normal text-white-50 mb-0">Tenemos todo lo que necesitas para vivir momentos inolvidables. ¿Por qué esperar? ¡Crea tu propio evento y comparte tu pasión con el mundo!</p>
+                    <p class="lead fw-normal text-white-50 mb-0">Descubre un mundo de emociones en nuestros eventos, donde cada experiencia es única e inolvidable. ¡Ven y sé parte de algo extraordinario!</p>
                 </div>
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-4 mt-4">
                     <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url "CrearEvento" %}">¡Creá tu evento!</a>
-                    <a class="btn btn-outline-light btn-lg px-4" href="#features">¡Todos los eventos!</a>
+                    <a class="btn btn-outline-light btn-lg px-4" href="{% url "ListaEvento" %}">¡Todos los eventos!</a>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<div class="card text-white bg-dark my-5 py-5 text-center">
-    <div class="card-body"><p class="lead fw-normal text-white-50 mb-0">Explorá el universo de eventos hasta encontrar aquel te transporte a la experiencia ideal. </p></div>
-</div>
-
 <!-- Section-->
-<section class="text-center my-5" id="features">
-    <h2>Eventos por Categoría</h2>
-  
-  {% if eventos %}
-    <div class="row">
-      {% for evento in object_list %}
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <img src="{{ evento.imagen.url }}" class="card-img-top" alt="Evento Imagen">
-            <div class="card-body">
-              <h5 class="card-title">{{ evento.nombre }}</h5>
-              <p class="card-text"><strong>Fecha:</strong> {{ evento.fecha }}</p>
-              <p class="card-text"><strong>Ubicación:</strong> {{ evento.ubicacion }}</p>
-              <!-- Otros campos y detalles que desees mostrar -->
-            </div>
-            <div class="card-footer">
-              <a href="{% url 'eventos_por_categoria' categoria=evento.categoria %}" class="btn btn-primary">Ver detalles</a>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  {% else %}
-    <p>No hay eventos disponibles en esta categoría.</p>
-  {% endif %}
-</section>
 <section class="py-5 border-bottom" id="features">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -71,11 +41,7 @@
                             <a href="{% url 'EditarEvento' evento.id %}">Editar</a>
                         </div>
                         <!-- Imagen-->
-                        {% if evento.imagen %}
-                        <img class="card-img-top" src="{{ evento.imagen.url }}" alt="Evento Imagen" style="max-width: 450px; max-height: 300px" />
-                        {% else %}
-                        <p>No hay imagen disponible</p>
-                        {% endif %}
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                         <!-- Detalles-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -95,8 +61,4 @@
         </div>
     </div>
 </section>
-
-
-
-
 {% endblock form %}

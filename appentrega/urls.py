@@ -2,6 +2,7 @@ from django.urls import path
 from appentrega import views
 from django.conf import settings
 from django.conf.urls.static import static
+# from .views import filtrar_por_categoria
 
 
 urlpatterns = [
@@ -34,6 +35,19 @@ urlpatterns += [
     path('evento_detalle/<int:pk>/', views.EventoDetailView.as_view(), name="DetalleEvento"),
     path('evento_editar/<int:pk>/', views.EventoUpdateView.as_view(), name="EditarEvento"),
     path('evento_eliminar/<int:pk>/', views.EventoDeleteView.as_view(), name="EliminarEvento"),
+    # path('eventos/categoria/<str:categoria>/', filtrar_por_categoria, name='eventos_por_categoria'),
 ]
+
+#Categorias
+# urlpatterns += [
+#     path('gastronomicos/', views.gastronomicos, name="Gastronomicos"),
+#     path('corporativos/', views.corporativos, name="Corporativos"),
+#     path('musicales/', views.musicales, name="Musicales"),
+#     path('cineastas/', views.cineastas, name="Cineastas"),
+#     path('deportivos/', views.deportivos, name="Deportivos"),
+#     path('sin_categoria/', views.sin_categoria, name="Sin_categoria"),
+#     path('eventos/categoria/<str:categoria>/', views.eventos_por_categoria, name='eventos_por_categoria'),
+# ]
+
 #Imagenes
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

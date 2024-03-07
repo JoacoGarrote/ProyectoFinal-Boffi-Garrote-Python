@@ -1,0 +1,75 @@
+{% extends 'appentrega/base.html' %}
+
+{% load static %}
+
+{% block titulo_pestana %}
+
+<title>Eventismos | Gastronomicos</title>
+
+{% endblock titulo_pestana %}
+
+{% block form %}
+
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center mb-0 mt-4">
+                    <h1 class="display-7 fw-bolder text-white mb-2">Eventos Gastronónicos</h1>
+                </div>
+                <div class="text-center mb-5 mt-0">
+                    <p class="lead fw-normal text-white-50 mb-0">¡Descubre un festín para tus sentidos en nuestros eventos gastronómicos! Deléitate con sabores exquisitos, aromas tentadores y experiencias culinarias inolvidables!</p>
+                </div>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-4 mt-4">
+                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url "CrearEvento" %}">¡Creá tu evento!</a>
+                    <a class="btn btn-outline-light btn-lg px-4" href="{% url "ListaEvento" %}">¡Todos los eventos!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5 border-bottom" id="features">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for evento in object_list %}
+                {% if evento.categoria == "Festival Gastronomico"%}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Editar-->
+                            <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">
+                                <a href="{% url 'EditarEvento' evento.id %}">Editar</a>
+                            </div>
+                            <!-- Imagen-->
+                            {% if evento.imagen %}
+                            <img class="card-img-top" src="{{ evento.imagen.url }}" alt="Evento Imagen" style="max-width: 450px; max-height: 300px" />
+                            {% else %}
+                            <p>No hay imagen disponible</p>
+                            {% endif %}
+                            <!-- Detalles-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Nombre-->
+                                    <h5 class="card-title">{{ evento.nombre }}</h5>
+                                    <!-- Fecha-->
+                                    <p class="card-text"><strong>Fecha: </strong>{{ evento.fecha }}</p>
+                                </div>
+                            </div>
+                            <!-- Acciones-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a href="{% url 'DetalleEvento' evento.id %}" class="btn btn-primary">Ver más información</a></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <p>No hay eventos disponibles en la categoría "Festival Gastronómico".</p>
+        </div>
+    </div>
+</section>
+
+
+{% endblock form %}

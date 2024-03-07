@@ -2,6 +2,12 @@
 
 {% load static %}
 
+{% block titulo_pestana %}
+
+<title>Eventismos | Crear evento</title>
+
+{% endblock titulo_pestana %}
+
 {% block form %}
 <section class="py-5 border-bottom">
     <div class="container px-5 px-lg-6 mt-5">
@@ -18,34 +24,38 @@
                 <section class="py-0 border-bottom">
                     <div class="container px-0 px-lg-4 mb-3 mt-0">
                         <div class="text-center my-1">
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Walter White">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="...">
                                     <label for="nombre">Nombre</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <select class="form-select" id="categoria" name="categoria" placeholder="Elija una opción">
+                                    <select class="form-select" id="categoria" name="categoria">
                                         <option value="Sin categoría">Sin categoría</option>
                                         <option value="Festival Corporativo">Festival Corporativo</option>
                                         <option value="Festival Musical">Festival Musical</option>
                                         <option value="Festival Cine">Festival Cine</option>
-                                        <option value="Festival Gastronómicos">Festival Gastronómicos</option>
+                                        <option value="Festival Gastronómico">Festival Gastronómico</option>
                                         <option value="Festival Deportivo">Festival Deportivo</option>
                                     </select>
-                                    <label for="categoria">Categoria</label>
-                                </div>
+                                    <label for="categoria">Categoría</label>
+                                </div>                                
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="308 de Negra Arroyo Lane">
+                                    <input type="text" class="form-control" id="ubicacion" name="ubicacion">
                                     <label for="ubicacion">Ubicacion</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <input type="date" class="form-control" id="fecha" name="fecha" placeholder="7 de Septiembre, 2008">
+                                    <input type="date" class="form-control" id="fecha" name="fecha">
                                     <label for="fecha">Fecha</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Una fiesta de cumpleaños...">
+                                    <input type="text" class="form-control" id="descripcion" name="descripcion">
                                     <label for="descripcion">Descripcion</label>
+                                </div>
+                                <div class="form-floating mb-4">
+                                    <input type="file" class="form-control" id="imagen" name="imagen">
+                                    <label for="imagen">Subir imagen</label>
                                 </div>
                                 <div class="text-center my-0 mt-3">
                                     <p style="font-size: medium;">Leer <a href="{% url 'Nada' %}">términos y condiciones</a> antes de completar el formulario.</p>

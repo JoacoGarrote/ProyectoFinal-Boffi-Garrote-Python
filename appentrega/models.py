@@ -19,6 +19,7 @@ class Evento(models.Model):
     ubicacion = models.CharField(max_length=40)
     fecha = models.CharField(max_length=40)
     descripcion = models.CharField(max_length=10000)
+    imagen = models.ImageField(upload_to='event_images/', null=True, blank=True)
 
     def __str__(self):
         return self.nombre
