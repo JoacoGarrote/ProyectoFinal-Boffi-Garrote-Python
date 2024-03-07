@@ -1,5 +1,7 @@
 from django.urls import path
 from appentrega import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -33,3 +35,5 @@ urlpatterns += [
     path('evento_editar/<int:pk>/', views.EventoUpdateView.as_view(), name="EditarEvento"),
     path('evento_eliminar/<int:pk>/', views.EventoDeleteView.as_view(), name="EliminarEvento"),
 ]
+#Imagenes
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

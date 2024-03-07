@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Blog Post - Start Bootstrap Template</title>
+    <title>Eventismos</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static "assets/favicon.ico"
     %}" />
@@ -42,8 +42,9 @@
             <li class="nav-item"><a class="nav-link" href="{% url "About" %}">Acerca de nosotros</a></li>
             {# Usuario #}
             {% if request.user.is_authenticated %}
-            {% if user_avatar %}
-                <img src="{{user_avatar}}" alt="" style="height: 40px;width: 40px;">
+            {% if user.profile_picture %}
+                <img src="{{user.profile_picture.url}}" alt="" class="rounded-circle profile-picture" style="height: 40px;width: 40px;">
+           
             {% endif %}
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,6 +73,7 @@
       </div>
     </nav>
 
+   
     {% block index %}
     {% endblock index %}
 

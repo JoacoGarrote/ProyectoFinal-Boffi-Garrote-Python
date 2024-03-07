@@ -303,7 +303,6 @@ figure {
   margin: 0 0 1rem;
 }
 
-img,
 svg {
   vertical-align: middle;
 }
@@ -10862,4 +10861,13 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.profile-picture {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.large-textarea {
+  height: 500px;
 }

@@ -1,9 +1,3 @@
-{% extends 'appentrega/base.html' %} 
-
-{% load static %} 
-
-{% block form %}
-
 <section class="py-5 border-bottom">
     <div class="container px-5 px-lg-6 mt-5">
         <div class="row gx-10 gx-lg-0 row-cols-5 row-cols-md-3 row-cols-xl-2 justify-content-center">
@@ -15,11 +9,7 @@
                 </div>
                 <div class="text-center my-0 mt-3">
                     <div class="text-center my-1">
-                        {% if user.profile_picture %}
-                        <img class="rounded-circle profile-picture" src="{{ user.profile_picture.url }}" alt="Foto de perfil">
-                        {% else %}
-                        <img class="rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="">
-                        {% endif %}
+                        <img class="img-fluid rounded-circle mb-4" src="{{ user.profile_picture }}" alt="Foto de perfil" />
                     </div>
                     <div class="text-center my-4">
                         <p class="text-dark-50 mb-4">...</p>
@@ -67,7 +57,3 @@
         </div>
     </div>
 </section>
-
-
-
-{% endblock form %}
