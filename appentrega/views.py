@@ -7,7 +7,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
-from users.models import Imagen
 from django import forms
 
 # Create your views here.
@@ -15,19 +14,12 @@ from django import forms
 def inicio(request):
     return render(request, "appentrega/index.html")
 
-def contacto(request):
-    return render(request, "appentrega/contacto.html")
-
 def about(request):
     return render(request, "appentrega/about.html")
 
 def nada(request):
     return render(request, "appentrega/no_page.html")
 
-#Login Required -- Vistas basadas en clases:
-# @login_required
-def eventos(request):
-    return render(request, "appentrega/eventos.html")
 
 # Usuario
 class UsuarioCreateView(LoginRequiredMixin, CreateView):
@@ -86,11 +78,13 @@ class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
 
 
 # Eventos
-class EventoCreateView( CreateView):
+
+class EventoCreateView(LoginRequiredMixin, CreateView):
     model = Evento
     template_name = "appentrega/evento_crear.html"
     fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
     success_url = reverse_lazy("ListaEvento")
+    login_url = reverse_lazy("Nada")
     widgets = {
         "categoria": forms.Select(attrs={'class': 'form-control'}),
     }
@@ -102,15 +96,18 @@ class EventoListView(ListView):
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
+
 class EventoDetailView(LoginRequiredMixin, DetailView):
     model = Evento
     template_name = "appentrega/evento_detalle.html"
+
 
 class EventoUpdateView(LoginRequiredMixin, UpdateView):
     model = Evento
     success_url = reverse_lazy("ListaEvento")
     fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
     template_name = "appentrega/evento_editar.html"
+
 
 class EventoDeleteView(LoginRequiredMixin, DeleteView):
     model = Evento

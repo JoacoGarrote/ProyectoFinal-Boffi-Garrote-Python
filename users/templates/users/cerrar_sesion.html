@@ -3,6 +3,32 @@
 {% load static %}
 
 {% block form %}
-    <h1> Logout </h1>
-    <p>TE HAS DESLOGUEADO</p>
+
+<section class="py-5 border-bottom">
+    <div class="container px-5 px-lg-6 mt-5">
+        <div class="row gx-10 gx-lg-0 row-cols-5 row-cols-md-3 row-cols-xl-2 justify-content-center">
+            <div class="card mb-0">
+                <div class="card-header">
+                    <div class="text-center my-1">
+                        <h3 class="fw-bolder mb-1 mt-2">Log Out</h3>
+                    </div>
+                </div>
+                <section class="py-0 border-bottom">
+                    <div class="container px-0 px-lg-4 mb-3 mt-0">
+                        <div class="text-center my-1">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="text-center my-0 mt-3">
+                                    <p style="font-size: medium;">Sesión cerrada exitosamente.</p>
+                                    <a href="{% url 'Inicio' %}" class="btn btn-outline-dark px-2">Ir a inicio</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock form %}

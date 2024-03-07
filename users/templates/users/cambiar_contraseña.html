@@ -1,4 +1,4 @@
-{% extends "appentrega/base.html" %}
+{% extends 'appentrega/base.html' %}
 
 {% load static %}
 
@@ -10,7 +10,7 @@
             <div class="card mb-0">
                 <div class="card-header">
                     <div class="text-center my-1">
-                        <h3 class="fw-bolder mb-1 mt-2">Agregá los datos de tu evento</h3>
+                        <h3 class="fw-bolder mb-1 mt-2">Actualizar usuario</h3>
                     </div>
                 </div>
                     <div class="text-center my-0 mt-3">
@@ -22,23 +22,16 @@
                             <form method="POST">
                                 {% csrf_token %}
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Guido Van Rossum">
-                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control" id="password1" name="password1" placeholder="Guido Van Rossum">
+                                    <label for="password1">Nueva contraseña</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Guido Van Rossum">
-                                    <label for="apellido">Apellido</label>
-                                </div>
-                                <div class="form-floating mb-4">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-                                    <label for="mail">Correo electrónico</label>
+                                    <input type="text" class="form-control" id="password2" name="password2" placeholder="Guido Van Rossum">
+                                    <label for="password2">Confirmar contraseña</label>
                                 </div>
                                 <div class="text-center my-0 mt-3">
-                                    <p style="font-size: medium;">Leer <a href="{% url 'Nada' %}">términos y condiciones</a> antes de completar el formulario.</p>
-                                </div>
-                                <div class="text-center my-0 mt-3">
-                                    <input type="submit" value="Crear Evento" class="btn btn-outline-dark px-3">
-                                    <a href="{% url 'ListaEvento' %}" class="btn btn-outline-dark px-3">Volver</a>
+                                    <input type="submit" value="Actualizar" class="btn btn-outline-dark px-3">
+                                    <a href="{% url 'Inicio' %}" class="btn btn-outline-dark px-3">Volver</a>
                                 </div>
                             </form>
                         </div>

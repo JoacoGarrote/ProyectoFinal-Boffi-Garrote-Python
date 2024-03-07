@@ -8,5 +8,5 @@ admin.site.register(Anfitrion)
 admin.site.register(Evento)
 
 # Super
-# super@gmail.com
-# 123456
+# super@super.com
+# 123

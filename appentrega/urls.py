@@ -4,8 +4,6 @@ from appentrega import views
 
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
-    path('eventos/', views.eventos, name="Evento"),
-    path('contacto/', views.contacto, name="Contacto"),
     path('about/', views.about, name="About"),
     path('nada/', views.nada, name="Nada"),
 ]
