@@ -8,35 +8,46 @@
 <header class="bg-dark py-5">
     <div class="text-center my-5">
         <img class="img-fluid rounded-circle mb-4" src="{% static "assets/logo.ico" %}" alt="..." />
-        <h1 class="text-white fs-3 fw-bolder">¡Oops! Parece que todavía no existe ese contenido...</h1>
+        <h1 class="text-white fs-3 fw-bolder">¡Oops! Parece que hemos perdido el rastro de esta página. <br>Estamos trabajando para recuperarlo...</h1>
+    </div>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a class="btn btn-outline-light btn-lg px-4" href="{% url "Inicio" %}">Volver a empezar...</a>
+            </div>
+        </div>
     </div>
 </header>
 <!-- Content section-->
 <section class="py-5">
-    <div class="container my-5">
+    <div class="bg-light py-3 border-bottom">
         <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <h3 class="text-center my-5">¡Gracias por tu paciencia mientras trabajamos para ofrecerte lo mejor!</h3>
-                <p class="mb-0">En un mundo digital en constante evolución, cada clic, cada palabra y cada imagen cuentan una historia. En nuestra página web, estamos comprometidos con la excelencia en cada detalle. Desde el diseño visual hasta la experiencia del usuario, cada aspecto está meticulosamente elaborado para cautivar y deleitar a nuestros visitantes. Actualmente, estamos realizando mejoras para ofrecerte una experiencia aún más envolvente y enriquecedora. Pronto revelaremos una versión renovada de nuestra plataforma, diseñada para inspirar, informar y conectar de maneras completamente nuevas.</p>
+            <div class="col-lg-4">
+                <h3 class="text-center my-3">¡Gracias por tu paciencia mientras trabajamos para ofrecerte lo mejor!</h3>
+                <p class="mb-3">En un mundo digital en constante evolución, cada clic, cada palabra y cada imagen cuentan una historia. En nuestra página web, estamos comprometidos con la excelencia en cada detalle. Desde el diseño visual hasta la experiencia del usuario, cada aspecto está meticulosamente elaborado para cautivar y deleitar a nuestros visitantes. Actualmente, estamos realizando mejoras para ofrecerte una experiencia aún más envolvente y enriquecedora. Pronto revelaremos una versión renovada de nuestra plataforma, diseñada para inspirar, informar y conectar de maneras completamente nuevas.</p>
             </div>
         </div>
     </div>
 </section>
 <!-- Image element - set the background image for the header in the line below-->
-<div class="bg-dark py-5">
-    <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
-    <div style="height: 7rem">
-        <div class="container my-5">
+<section class="text-center my-5">
+    <div class="bg-dark py-5 border-bottom">
+        <div class="container px-4 px-lg-5">
+            <h3 class="font-weight-dark text-white">Mientras tanto...</h3>
+            <div class="card-body">
+                <p class="lead fw-normal text-light-50 mb-5 text-white">¿Por qué no echas un vistazo a quiénes somos? Descubre la historia y el equipo detrás de nuestra pasión y dedicación. ¡Te invitamos a conocernos mejor y ser parte de nuestra comunidad!</p>
+            </div>
+        </div>
+        <div class="container my-2">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-outline-light btn-lg px-4" href="{% url "Inicio" %}">Volver a empezar...</a>
-                    </div>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-outline-light btn-lg px-4" href="{% url "About" %}">Acerca de nosotros</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
 <!-- Content section-->
 <section class="py-5">
 

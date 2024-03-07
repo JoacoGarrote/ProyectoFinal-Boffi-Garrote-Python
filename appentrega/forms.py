@@ -1,4 +1,5 @@
 from django import forms
+from .models import Evento
 
 class CrearEvento(forms.Form):
     nombre = forms.CharField()

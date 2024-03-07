@@ -8,7 +8,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from users.models import Imagen
-
+from django import forms
 
 # Create your views here.
 
@@ -91,8 +91,11 @@ class EventoCreateView( CreateView):
     template_name = "appentrega/evento_crear.html"
     fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion"]
     success_url = reverse_lazy("ListaEvento")
+    widgets = {
+        "categoria": forms.Select(attrs={'class': 'form-control'}),
+    }
 
-class EventoListView(LoginRequiredMixin, ListView):
+class EventoListView(ListView):
     model = Evento
     template_name = "appentrega/evento_lista.html"
 

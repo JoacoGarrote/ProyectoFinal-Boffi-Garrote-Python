@@ -9,11 +9,12 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <div class="text-center my-5">
-                    <h1 class="display-5 fw-bolder text-white mb-2">"Eventísmos, el punto de encuentro para dar vida a tus ideas."</h1>
-                    <p class="lead text-white-50 mb-4">Descubre eventos únicos y emocionantes cerca de ti o en destinos exóticos. Con una amplia variedad de opciones, siempre encontrarás algo que te inspire y te motive a participar. Desde eventos familiares hasta oportunidades de networking profesional, la diversidad de eventos en Eventismos garantiza que haya algo para todos.</p>
+                    <h1 class="display-5 fw-bolder text-white mb-2">Acerca de Nosotros</h1>
+                    <p class="lead text-white-50 mb-4">Descubre eventos únicos y emocionantes cerca de ti. 
+                        <br>Desde eventos familiares hasta oportunidades de networking profesional, Eventismos garantiza que haya algo para todos.</p>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url "ListaEvento" %}">¡Creá tu evento!</a>
-                        <a class="btn btn-outline-light btn-lg px-4" href="#features">¡Aprende más sobre nosotros!</a>
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url "ListaEvento" %}">¡Eventos aqui!</a>
+                        <a class="btn btn-outline-light btn-lg px-4" href="#features">¡Elegí tu plan!</a>
                     </div>
                 </div>
             </div>
@@ -21,33 +22,42 @@
     </div>
 </header>
 <!-- Features section-->
-<section class="py-5 border-bottom" id="features">
-    <div class="container px-5 my-5 d-flex">
-        <div class="row gx-5">
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                <h2 class="h4 fw-bolder">Lautaro Boffi</h2>
-                <p>Soy un apasionado de los eventos y la creatividad. Siempre estoy buscando nuevas experiencias que me inspiren y me permitan conectar con personas de ideas afines. Desde festivales de música hasta eventos culturales y conferencias, me encanta explorar y participar en eventos que despierten mi curiosidad y me hagan sentir parte de algo más grande.</p>
-                <a class="text-decoration-none" href="{% url "Nada" %}">
-                    Mis redes sociales
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+<section class="py-5 border-bottom">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 mb-5">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4 class="fw-bolder mb-1 mt-2">Lautaro Boffi</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="fs-6 mb-4">Soy un apasionado de los eventos y la creatividad. Siempre estoy buscando nuevas experiencias que me inspiren y me permitan conectar con personas de ideas afines. Desde festivales de música hasta eventos culturales y conferencias, me encanta explorar y participar en eventos que despierten mi curiosidad y me hagan sentir parte de algo más grande.</p>
+                        <div class="text-center">
+                            <a href="#contacto" class="btn btn-outline-dark px-3">Contacto</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                <h2 class="h4 fw-bolder">Joaquín Garrote</h2>
-                <p>Me considero un aventurero de los eventos, siempre en búsqueda de experiencias que despierten mis sentidos y alimenten mi alma. Desde festivales coloridos hasta eventos culturales llenos de historia, cada encuentro es una oportunidad para sumergirme en nuevas emociones y descubrir la diversidad del mundo que nos rodea.</p>
-                <a class="text-decoration-none" href="{% url "Nada" %}">
-                    Mis redes sociales
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+            <div class="col-md-5 mb-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4 class="fw-bolder mb-1 mt-2">Joaquín Garrote</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="fs-6 mb-5">Me considero un aventurero de los eventos, siempre en búsqueda de experiencias que despierten mis sentidos y alimenten mi alma. Desde festivales coloridos hasta eventos culturales llenos de historia, cada encuentro es una oportunidad para sumergirme en nuevas emociones y descubrir la diversidad del mundo que nos rodea.</p>
+                        <div class="text-center">
+                            <a href="#contacto" class="btn btn-outline-dark px-3">Contacto</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+
 <!-- Pricing section-->
-<section class="bg-light py-5 border-bottom">
+<section class="bg-light py-5 border-bottom" id="features">
     <div class="container px-5 my-5">
         <div class="text-center mb-5">
             <h2 class="fw-bolder">Elegí un plan, armá tus eventos</h2>
@@ -206,11 +216,11 @@
     </div>
 </section>
 <!-- Testimonials section-->
-<section class="py-5 border-bottom">
+<section class="bg-dark py-5 border-bottom">
     <div class="container px-5 my-5 px-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bolder">Testimonios de clientes</h2>
-            <p class="lead mb-0">Todos nuestros clientes son igualmente importantes, sin importar el tamaño de su evento o su trayectoria</p>
+            <h2 class="fw-bolder text-white">Testimonios de clientes</h2>
+            <p class="lead mb-0 text-white" >Todos nuestros clientes son importantes, sin importar el tamaño de su evento o su trayectoria.</p>
         </div>
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
@@ -243,7 +253,7 @@
     </div>
 </section>
 <!-- Contact section-->
-<section class="bg-light py-5">
+<section class="bg-light py-5" id="contacto">
     <div class="container px-5 my-5 px-5">
         <div class="text-center mb-5">
             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>

@@ -7,3 +7,92 @@
         <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
     </div>
 </div>
+
+<div class="card mb-2">
+    <div class="card-body">
+        <div class="fw-bolder mb-2 mt-3">
+            <!-- Post title-->
+            <h1 class="fw-bolder mb-1">{{ evento.nombre }}</h1>
+            <!-- Post meta content-->
+            <div class="fst-italic mb-2">Se realizará el día {{ evento.fecha }}</div>
+            <!-- Post categories-->
+            <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'ListaEvento' %}">{{ evento.categoria }}</a>
+        </div>
+    </div>
+</div>
+
+{% comment %} seccion de comentarios {% endcomment %}
+<section class="mb-4">
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="mb-5">
+                <h3 class="fw-bolder mb-2 mt-3">¡Comentanos qué te parece!</h3>
+                <br>
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <!-- Comment form-->
+                        <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                        <!-- Comment with nested comments-->
+                        <div class="d-flex mb-4">
+                            <!-- Parent comment-->
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="ms-3">
+                                <div class="fw-bold">Commenter Name</div>
+                                If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                                <!-- Child comment 1-->
+                                <div class="d-flex mt-4">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
+                                    </div>
+                                </div>
+                                <!-- Child comment 2-->
+                                <div class="d-flex mt-4">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        When you put money directly to a problem, it makes a good headline.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single comment-->
+                        <div class="d-flex">
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="ms-3">
+                                <div class="fw-bold">Commenter Name</div>
+                                When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-5 border-bottom">
+    <div class="container px-5 px-lg-6 mt-5">
+        <div class="row gx-10 gx-lg-0 row-cols-5 row-cols-md-3 row-cols-xl-2 justify-content-center">
+            <div class="card mb-0">
+                <div class="card-header">
+                    <div class="text-center my-1">
+                        <h3 class="fw-bolder mb-1 mt-2">Actualización de datos</h3>
+                    </div>
+                </div>
+                    <div class="text-center my-0 mt-3">
+                        <p style="font-size: medium;">*Todos los campos son obligatorios para modificar el evento*</p>
+                    </div>
+                <section class="py-0 border-bottom">
+                    <div class="container px-0 px-lg-4 mb-3 mt-0">
+                        <div class="text-center my-1">
+                            {% comment %} formulario {% endcomment %}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
