@@ -14,7 +14,7 @@ La mayoría de las vistas fue creada con plantillas predefindas de Bootstrap per
 
 ### Reparto de tareas
 
-**Lautaro Boffi:** Programación general de todo el proyecto con Python y Django, se enfocó en el correcto funcionamiento en la sección de comentarios y personalización de eventos.
+**Lautaro Boffi:** Programación general de todo el proyecto con Python y Django, se enfocó en la personalización de eventos y en el correcto funcionamiento en la sección de comentarios.
 
 **Joaquín Garrote:** Programación general de todo el proyecto con Python y Django, se enfocó en el enrutado, en mejorar el aspecto visual y testear el funcionamiento de usuarios.
 

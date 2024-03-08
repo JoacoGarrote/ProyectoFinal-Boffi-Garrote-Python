@@ -2,7 +2,6 @@ from django.urls import path
 from appentrega import views
 from django.conf import settings
 from django.conf.urls.static import static
-# from .views import filtrar_por_categoria
 
 
 urlpatterns = [
@@ -30,7 +29,6 @@ urlpatterns += [
     path('cineastas/', views.cineastas, name="Cineastas"),
     path('deportivos/', views.deportivos, name="Deportivos"),
     path('sin_categoria/', views.sin_categoria, name="Sin_categoria"),
-    # path('eventos/categoria/<str:categoria>/', views.eventos_por_categoria, name='eventos_por_categoria'),
 ]
 
 #Imagenes

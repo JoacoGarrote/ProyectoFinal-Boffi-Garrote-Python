@@ -1,12 +1,17 @@
 from django import forms
-from .models import Comentario
+from .models import Comentario, Evento
 
-class CrearEvento(forms.Form):
-    nombre = forms.CharField()
-    fecha = forms.IntegerField()
 
-class BuscarEvento(forms.Form):
-    nombre = forms.TextInput()
+#AGREGADO
+class EventoForm(forms.ModelForm):
+    class Meta:
+        model = Evento
+        fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion", "imagen"]
+
+        widgets = {
+            "categoria": forms.Select(attrs={'class': 'form-control'}),
+            "fecha": forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+        }
 
 class ComentarioForm(forms.ModelForm):
     class Meta:

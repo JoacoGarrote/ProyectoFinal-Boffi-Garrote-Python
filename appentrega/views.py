@@ -8,7 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormMi
 from django.views.generic import ListView, View
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
-from django import forms
+from .forms import EventoForm
 
 # Create your views here.
 
@@ -30,13 +30,9 @@ def login_requerido(request):
 class EventoCreateView(LoginRequiredMixin, CreateView):
     model = Evento
     template_name = "appentrega/evento/evento_crear.html"
-    fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion", "imagen"]
+    form_class = EventoForm
     success_url = reverse_lazy("ListaEvento")
     login_url = reverse_lazy("LoginRequerido")
-
-    widgets = {
-        "categoria": forms.Select(attrs={'class': 'form-control'}),
-    }
 
 class EventoListView(ListView):
     model = Evento
@@ -79,6 +75,7 @@ class EventoUpdateView(LoginRequiredMixin, UpdateView):
     model = Evento
     success_url = reverse_lazy("ListaEvento")
     fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion", "imagen"]
+    login_url = reverse_lazy("LoginRequerido")
     template_name = "appentrega/evento/evento_editar.html"
 
 
@@ -135,4 +132,4 @@ class EliminarComentarioView(View):
         comentario.delete()
         return redirect(request.META.get('HTTP_REFERER'))
 
-      
+
