@@ -39,15 +39,15 @@ urlpatterns += [
 ]
 
 #Categorias
-# urlpatterns += [
-#     path('gastronomicos/', views.gastronomicos, name="Gastronomicos"),
-#     path('corporativos/', views.corporativos, name="Corporativos"),
-#     path('musicales/', views.musicales, name="Musicales"),
-#     path('cineastas/', views.cineastas, name="Cineastas"),
-#     path('deportivos/', views.deportivos, name="Deportivos"),
-#     path('sin_categoria/', views.sin_categoria, name="Sin_categoria"),
-#     path('eventos/categoria/<str:categoria>/', views.eventos_por_categoria, name='eventos_por_categoria'),
-# ]
+urlpatterns += [
+    path('gastronomicos/', views.gastronomicos, name="Gastronomicos"),
+    path('corporativos/', views.corporativos, name="Corporativos"),
+    path('musicales/', views.musicales, name="Musicales"),
+    path('cineastas/', views.cineastas, name="Cineastas"),
+    path('deportivos/', views.deportivos, name="Deportivos"),
+    path('sin_categoria/', views.sin_categoria, name="Sin_categoria"),
+    # path('eventos/categoria/<str:categoria>/', views.eventos_por_categoria, name='eventos_por_categoria'),
+]
 
 #Imagenes
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -34,7 +34,7 @@
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             {% for evento in object_list %}
-                {% if evento.categoria == "Festival Gastronomico"%}
+                {% if evento.categoria == "FestivalGastronomico" %}
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Editar-->
@@ -43,9 +43,9 @@
                             </div>
                             <!-- Imagen-->
                             {% if evento.imagen %}
-                            <img class="card-img-top" src="{{ evento.imagen.url }}" alt="Evento Imagen" style="max-width: 450px; max-height: 300px" />
+                                <img class="card-img-top" src="{{ evento.imagen.url }}" alt="Evento Imagen" style="max-width: 450px; max-height: 300px" />
                             {% else %}
-                            <p>No hay imagen disponible</p>
+                                <p>No hay imagen disponible</p>
                             {% endif %}
                             <!-- Detalles-->
                             <div class="card-body p-4">
@@ -64,9 +64,6 @@
                     </div>
                 {% endif %}
             {% endfor %}
-        </div>
-        <div class="text-center">
-            <p>No hay eventos disponibles en la categoría "Festival Gastronómico".</p>
         </div>
     </div>
 </section>

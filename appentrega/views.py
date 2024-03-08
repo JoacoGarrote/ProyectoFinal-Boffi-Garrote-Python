@@ -150,25 +150,30 @@ class EventoDeleteView(LoginRequiredMixin, DeleteView):
     
 # gastronomicos
 def gastronomicos(request):
-    return render(request, "appentrega/evento/categorias/gastronomicos.html")
+    object_list = Evento.objects.all()
+    return render(request, "appentrega/evento/categorias/gastronomicos.html", {'object_list': object_list})
 
 # corporativos
 def corporativos(request):
-    return render(request, "appentrega/evento/categorias/corporativos.html")
+    object_list = Evento.objects.all()
+    return render(request, "appentrega/evento/categorias/corporativos.html", {'object_list': object_list})
 
 # musicales
 def musicales(request):
-    return render(request, "appentrega/evento/categorias/musicales.html")
+    object_list = Evento.objects.all()
+    return render(request, "appentrega/evento/categorias/musicales.html", {'object_list': object_list})
 
 # cineastas
 def cineastas(request):
-    return render(request, "appentrega/evento/categorias/cineastas.html")
+    object_list = Evento.objects.all()
+    return render(request, "appentrega/evento/categorias/cineastas.html", {'object_list': object_list})
 
 #deportivos
 def deportivos(request):
-    return render(request, "appentrega/evento/categorias/deportivos.html")
+    object_list = Evento.objects.all()
+    return render(request, "appentrega/evento/categorias/deportivos.html", {'object_list': object_list})
 
 #sin categoria
 def sin_categoria(request):
-    return render(request, "appentrega/evento/categorias/sin_categoria.html")
-    corporativos
+    object_list = Evento.objects.all()
+    return render(request, "appentrega/evento/categorias/sin_categoria.html", {'object_list': object_list})
