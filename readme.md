@@ -55,3 +55,13 @@ o
 4. <u>Por último, iniciar el servidor</u>:
 
    python manage.py runserver
+
+
+## Video
+
+Link al video de Youtube:
+https://www.youtube.com/watch?v=tit1QnWOGSA
+
+## Agradecimientos
+
+Agradecemos a nuestro profesor y tutor, Cesar Baby y Enzo Martin Zotti por la cursada y habernos enseñado este lenguaje maravilloso!
