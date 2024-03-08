@@ -1,13 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from .models import Usuario, Anfitrion, Evento
+from .models import Usuario, Anfitrion, Evento, Comentario
 from .forms import ComentarioForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormMixin
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from django.http import HttpResponse
 from django import forms
 
 # Create your views here.
@@ -20,12 +21,6 @@ def about(request):
 
 def nada(request):
     return render(request, "appentrega/no_page.html")
-
-# def filtrar_por_categoria(request, categoria):
-#     eventos = Evento.objects.filter(categoria=categoria)
-#     categorias = ["Sin categoría", "Festival Corporativo", "Festival Musical", "Festival Cine", "Festival Gastronomico", "Festival Deportivo"]
-
-#     return render(request, "'appentrega/evento_lista.html", {'eventos': eventos, 'categorias': categorias})
 
 # Usuario
 class UsuarioCreateView(LoginRequiredMixin, CreateView):
@@ -177,3 +172,10 @@ def deportivos(request):
 def sin_categoria(request):
     object_list = Evento.objects.all()
     return render(request, "appentrega/evento/categorias/sin_categoria.html", {'object_list': object_list})
+
+# Comentario
+class EliminarComentarioView(View):
+    def get(self, request, comentario_id):
+        comentario = get_object_or_404(Comentario, pk=comentario_id)
+        comentario.delete()
+        return redirect(request.META.get('HTTP_REFERER'))

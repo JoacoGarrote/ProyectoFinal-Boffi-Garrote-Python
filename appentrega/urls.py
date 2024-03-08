@@ -35,7 +35,7 @@ urlpatterns += [
     path('evento_detalle/<int:pk>/', views.EventoDetailView.as_view(), name="DetalleEvento"),
     path('evento_editar/<int:pk>/', views.EventoUpdateView.as_view(), name="EditarEvento"),
     path('evento_eliminar/<int:pk>/', views.EventoDeleteView.as_view(), name="EliminarEvento"),
-    # path('eventos/categoria/<str:categoria>/', filtrar_por_categoria, name='eventos_por_categoria'),
+    path('eliminar-comentario/<int:comentario_id>/', views.EliminarComentarioView.as_view(), name="EliminarComentario"),
 ]
 
 #Categorias
@@ -46,7 +46,6 @@ urlpatterns += [
     path('cineastas/', views.cineastas, name="Cineastas"),
     path('deportivos/', views.deportivos, name="Deportivos"),
     path('sin_categoria/', views.sin_categoria, name="Sin_categoria"),
-    # path('eventos/categoria/<str:categoria>/', views.eventos_por_categoria, name='eventos_por_categoria'),
 ]
 
 #Imagenes

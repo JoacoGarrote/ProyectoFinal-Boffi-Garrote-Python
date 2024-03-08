@@ -32,103 +32,69 @@
 <div class="card text-white bg-dark my-5 py-5 text-center">
     <div class="card-body"><p class="lead fw-normal text-white-50 mb-0">Explorá el universo de eventos hasta encontrar aquel te transporte a la experiencia ideal. </p></div>
 </div>
-<div class="bg-light py-5 border-bottom mb-5">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Gastronomicos</h2>
-                        <p class="card-text">¡Descubre un festín para tus sentidos en nuestros eventos gastronómicos! Deléitate con sabores exquisitos, aromas tentadores y experiencias culinarias inolvidables.</p>
-                    </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Gastronomicos" %}">Más info</a></div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Corporativos</h2>
-                        <p class="card-text">Únete a nosotros en nuestros eventos corporativos, donde la innovación, el networking y el crecimiento profesional se fusionan para crear oportunidades únicas. ¡Construyamos juntos el futuro empresarial!</p>
-                    </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Corporativos" %}">Más info</a></div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Musicales</h2>
-                        <p class="card-text">Sumérgete en el ritmo y la energía de nuestros eventos musicales. Disfruta de melodías que te transportarán, comparte momentos inolvidables y déjate llevar por la magia de la música en vivo. ¡No te lo pierdas!</p>
-                    </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Musicales" %}">Más info</a></div>
-                </div>
-            </div>
-        </div>
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Cineastas</h2>
-                        <p class="card-text">¡Sumérgete en el mundo del cine con nosotros! Disfruta de emocionantes proyecciones, historias cautivadoras y momentos que te transportarán a otras realidades en nuestros eventos cinematográficos.</p>
-                    </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Cineastas" %}">Más info</a></div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Deportivos</h2>
-                        <p class="card-text">¡Ven y vive la emoción de nuestros eventos deportivos! Sé parte de la acción, apoya a tu equipo favorito y disfruta de momentos inolvidables llenos de adrenalina y pasión por el deporte.</p>
-                    </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Deportivos" %}">Más info</a></div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Sin categoría</h2>
-                        <p class="card-text">Descubre un mundo de emociones en nuestros eventos, donde cada experiencia es única e inolvidable. ¡Ven y sé parte de algo extraordinario!</p>
-                    </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Sin_categoria" %}">Más info</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Section-->
-{% comment %} <section class="py-5 border-bottom" id="features">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            {% for evento in object_list %}
-                <div class="col mb-5">
+<section class="py-5" id="features">
+    <div class="bg-light py-5 border-bottom mb-5">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
                     <div class="card h-100">
-                        <!-- Editar-->
-                        <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">
-                            <a href="{% url 'EditarEvento' evento.id %}">Editar</a>
+                        <div class="card-body">
+                            <h2 class="card-title">Gastronomicos</h2>
+                            <p class="card-text">¡Descubre un festín para tus sentidos en nuestros eventos gastronómicos! Deléitate con sabores exquisitos, aromas tentadores y experiencias culinarias inolvidables.</p>
                         </div>
-                        <!-- Imagen-->
-                        {% if evento.imagen %}
-                        <img class="card-img-top" src="{{ evento.imagen.url }}" alt="Evento Imagen" style="max-width: 450px; max-height: 300px" />
-                        {% else %}
-                        <p>No hay imagen disponible</p>
-                        {% endif %}
-                        <!-- Detalles-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nombre-->
-                                <h5 class="card-title">{{ evento.nombre }}</h5>
-                                <!-- Fecha-->
-                                <p class="card-text"><strong>Fecha: </strong>{{ evento.fecha }}</p>
-                            </div>
-                        </div>
-                        <!-- Acciones-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a href="{% url 'DetalleEvento' evento.id %}" class="btn btn-primary">Ver más información</a></div>
-                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Gastronomicos" %}">Más info</a></div>
                     </div>
                 </div>
-            {% endfor %}
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Corporativos</h2>
+                            <p class="card-text">Únete a nosotros en nuestros eventos corporativos, donde la innovación, el networking y el crecimiento profesional se fusionan para crear oportunidades únicas. ¡Construyamos juntos el futuro empresarial!</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Corporativos" %}">Más info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Musicales</h2>
+                            <p class="card-text">Sumérgete en el ritmo y la energía de nuestros eventos musicales. Disfruta de melodías que te transportarán, comparte momentos inolvidables y déjate llevar por la magia de la música en vivo. ¡No te lo pierdas!</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Musicales" %}">Más info</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Cineastas</h2>
+                            <p class="card-text">¡Sumérgete en el mundo del cine con nosotros! Disfruta de emocionantes proyecciones, historias cautivadoras y momentos que te transportarán a otras realidades en nuestros eventos cinematográficos.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Cineastas" %}">Más info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Deportivos</h2>
+                            <p class="card-text">¡Ven y vive la emoción de nuestros eventos deportivos! Sé parte de la acción, apoya a tu equipo favorito y disfruta de momentos inolvidables llenos de adrenalina y pasión por el deporte.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Deportivos" %}">Más info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Más eventos</h2>
+                            <p class="card-text">Descubre un mundo de emociones en nuestros eventos, donde cada experiencia es única e inolvidable. ¡Ven y sé parte de algo extraordinario!</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url "Sin_categoria" %}">Más info</a></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</section> {% endcomment %}
+</section>
 
 {% endblock form %}

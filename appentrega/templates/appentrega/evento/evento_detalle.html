@@ -27,7 +27,11 @@
                 </header>
                 <!-- Imagen-->
                 {% if evento.imagen %}
-                <img class="card-img-top" src="{{ evento.imagen.url }}" alt="Evento Imagen" style="max-width: 450px; max-height: 300px" />
+                <section class="py-4">
+                    <div class="card mb-4"> 
+                        <img class="card-img-top img-section" src="{{ evento.imagen.url }}" alt="Evento Imagen" style="max-width: 100%; max-height: 100%" />
+                    </div>
+                </section>
                 {% else %}
                 <p>No hay imagen disponible</p>
                 {% endif %}
@@ -35,7 +39,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="mb-2">
-                            <h3 class="mb-2 mt-2">¿Dónde?</h3>
+                            <h4 class="mb-2 mt-2">¿Dónde?</h4>
                         </div>
                     </div>
                     <section class="py-4 border-bottom">
@@ -48,7 +52,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="mb-2">
-                            <h3 class="mb-2 mt-2">Acerca del evento:</h3>
+                            <h4 class="mb-2 mt-2">Acerca del evento:</h4>
                         </div>
                     </div>
                     <section class="py-4 border-bottom">
@@ -61,76 +65,116 @@
             <!-- Agregar sección de comentarios-->
             <div class="card mb-4">
                 <div class="card-header">
-                    <div class="mb-2">
-                        <h3 class="mb-2 mt-2">¡Comentanos qué te parece!</h3>
+                    <div class="mb-2 justify-content-center">
+                        <h4 class="mb-2 mt-2">¡Comentanos qué te parece!</h4>
                     </div>
                 </div>
                 <section class="py-4 border-bottom">
                     <!-- evento_detalle.html -->
-                    <h3>Agregar Comentario:</h3>
-                    <form method="post" action="{% url 'DetalleEvento' pk=object.pk %}">
-                    {% csrf_token %}
-                    {{ comentario_form.as_p }}
-                    <button type="submit">Enviar Comentario</button>
-                    </form>
-
-                    <div class="comments-section">
-                        <h3>Comentarios:</h3>
-                        {% if object.comentarios.exists %}
-                            {% for comentario in object.comentarios.all %}
-                                <div class="comment">
-                                    <p><strong>{{ comentario.usuario }}</strong>: {{ comentario.mensaje }}</p>
-                                    <small>{{ comentario.fechaComentario }}</small>
+                    <div class="container px-5">
+                        <div class="justify-content-center">
+                            <div class="col-lg-6">
+                                <form class="mb-4" method="post" action="{% url 'DetalleEvento' pk=object.pk %}">
+                                    {% csrf_token %}
+                                    {{ comentario_form.as_p }}
+                                    <button type="submit" class="btn btn-outline-dark btn-lg px-4">Enviar Comentario</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="mb-2">
+                        <h4 class="mb-2 mt-2">Todas las opiniones</h4>
+                    </div>
+                </div>
+                <section class="py-4 border-bottom">
+                    <div class="container px-4 px-lg-4 mb-1 mt-0">
+                        <div class="justify-content-center">
+                            <div class="">
+                                <div class="comments-section">
+                                    {% if object.comentarios.exists %}
+                                        {% for comentario in object.comentarios.all %}
+                                        <div class="card mb-1">
+                                            <div class="card-header">
+                                                <div class="comment mb-0 d-flex align-items-center">
+                                                    <div class="flex-shrink-0 me-2">
+                                                        <img class="rounded-circle" src="{{ comentario.usuario.profile_picture.url }}" alt="..." style="max-width: 40px;" />
+                                                    </div>
+                                                    <div>
+                                                        <p><strong>{{ comentario.usuario }}</strong>: {{ comentario.mensaje }}</p>
+                                                        <small>{{ comentario.fechaComentario }}</small>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <div class="badge bg-light text-black">
+                                                            <a href="{% url 'EliminarComentario' comentario.id %}">Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                        {% endfor %}
+                                    {% else %}
+                                        <p>No hay comentarios todavía.</p>
+                                    {% endif %}
                                 </div>
-                            {% endfor %}
-                        {% else %}
-                            <p>No hay comentarios todavía.</p>
-                        {% endif %}
-                    </div>
-                </section>
-            </div>
-        </div>
-        <!-- Side widgets-->
-        <div class="col-lg-4">
-            <!-- Search widget-->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <div class="text-center my-1">
-                        <h3 class="mb-1 mt-2">¡Unite a la experiencia!</h3>
-                    </div>
-                </div>
-                <section class="py-4 border-bottom">
-                    <div class="container px-0 px-lg-4 mb-0 mt-0">
-                        <div class="text-center my-1">
-                            <p class="fs-5 mb-4">Descubrí todo lo que necesitas para disfrutar al máximo de nuestro evento completando este formulario y nos pondemos en contacto. ¡Te esperamos!</p>
-                        </div>
-                        <div class="text-center my-1">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-2" href="{% url "Nada" %}">¡Quiero ir!</a>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <!-- Side widget-->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <div class="text-center my-1">
-                        <h3 class="mb-1 mt-2">Buscá más eventos</h3>
-                    </div>
-                </div>
-                <section class="py-4 border-bottom">
-                    <div class="container px-0 px-lg-4 mb-0 mt-0">
-                        <div class="text-center my-1">
-                            <p class="fs-5 mb-4">Si este evento no es de tu gusto, no te preocupes! Tenemos una amplia lista de eventos para explorar y encontrar el que mejor se adapte a tus gustos.</p>
-                        </div>
-                        <div class="text-center my-1">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url "ListaEvento" %}">Buscar Eventos</a>
+                            </div>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-    </div>
-</div>
+                    <!-- Side widgets-->
+                    <div class="col-lg-4">
+                        <!-- Search widget-->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <div class="text-center my-1">
+                                    <h4 class="mb-1 mt-2">¡Unite a la experiencia!</h4>
+                                </div>
+                            </div>
+                            <section class="py-4 border-bottom">
+                                <div class="container px-0 px-lg-4 mb-0 mt-0">
+                                    <div class="text-center my-1">
+                                        <p class="fs-5 mb-4">Descubrí todo lo que necesitas para disfrutar al máximo de nuestro evento completando este formulario y nos pondemos en contacto. ¡Te esperamos!</p>
+                                    </div>
+                                    <div class="text-center my-1">
+                                        <a class="btn btn-outline-dark btn-lg px-4 me-sm-2" href="{% url "Nada" %}">¡Quiero ir!</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- Side widget-->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <div class="text-center my-1">
+                                    <h4 class="mb-1 mt-2">Buscá por categoría</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><a href="{% url "Gastronomicos" %}">Gastronómicos</a></li>
+                                            <li><a href="{% url "Corporativos" %}">Corporativos</a></li>
+                                            <li><a href="{% url "Cineastas" %}">Cineastas</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><a href="{% url "Deportivos" %}">Deportivos</a></li>
+                                            <li><a href="{% url "Musicales" %}">Musicales</a></li>
+                                            <li><a href="{% url "Sin_categoria" %}">Sin Categoría</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 {% endblock form %}
 

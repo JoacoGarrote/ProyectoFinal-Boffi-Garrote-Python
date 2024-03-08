@@ -1,5 +1,7 @@
 from django.db import models
 from users.models import CustomUser
+from django.utils import timezone
+import pytz
 
 # Create your models here.
 
@@ -29,7 +31,16 @@ class Comentario(models.Model):
     evento = models.ForeignKey(Evento, related_name='comentarios', on_delete=models.CASCADE, null=True)
     usuario = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
     mensaje = models.TextField(null=True, blank=True)
-    fechaComentario = models.DateTimeField(auto_now_add=True)
+    fechaComentario = models.DateTimeField(null=True)
+
+    def save(self, *args, **kwargs):
+        zona_horaria_local = pytz.timezone('America/Argentina/Buenos_Aires')
+
+        if not self.fechaComentario:
+            self.fechaComentario = timezone.now()
+
+        self.fechaComentario = timezone.localtime(self.fechaComentario, zona_horaria_local)
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-fechaComentario']
