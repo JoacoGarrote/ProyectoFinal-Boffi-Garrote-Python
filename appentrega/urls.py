@@ -46,6 +46,10 @@ urlpatterns += [
     path('cineastas/', views.cineastas, name="Cineastas"),
     path('deportivos/', views.deportivos, name="Deportivos"),
     path('sin_categoria/', views.sin_categoria, name="Sin_categoria"),
+<<<<<<< HEAD
+=======
+    # path('eventos/categoria/<str:categoria>/', views.eventos_por_categoria, name='eventos_por_categoria'),
+>>>>>>> ea575dd9510310e4de0244f85c907bc807d1fdc2
 ]
 
 #Imagenes

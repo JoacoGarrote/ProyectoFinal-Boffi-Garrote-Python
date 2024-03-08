@@ -171,6 +171,7 @@ def deportivos(request):
 #sin categoria
 def sin_categoria(request):
     object_list = Evento.objects.all()
+<<<<<<< HEAD
     return render(request, "appentrega/evento/categorias/sin_categoria.html", {'object_list': object_list})
 
 # Comentario
@@ -179,3 +180,6 @@ class EliminarComentarioView(View):
         comentario = get_object_or_404(Comentario, pk=comentario_id)
         comentario.delete()
         return redirect(request.META.get('HTTP_REFERER'))
+=======
+    return render(request, "appentrega/evento/categorias/sin_categoria.html", {'object_list': object_list})
+>>>>>>> ea575dd9510310e4de0244f85c907bc807d1fdc2
