@@ -6,5 +6,5 @@ from .models import Evento
 admin.site.register(Evento)
 
 # Super
-# super@super.com
-# 1234
+# User: Superusuario
+# Contraseña: 1234
