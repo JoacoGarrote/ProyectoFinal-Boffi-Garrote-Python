@@ -1,0 +1,23 @@
+{% extends 'appentrega/base.html' %} 
+
+{% load static %} 
+
+{% block main %}
+
+<!-- Header - set the background image for the header in the line below-->
+<header class="bg-dark py-5">
+    <div class="text-center my-5">
+        <img class="img-fluid rounded-circle mb-4" src="{% static "assets/logo.ico" %}" alt="..." />
+        <h1 class="text-white fs-3 fw-bolder">Para ver en detalle nuestros eventos necesitas iniciar sesión. <br>¡Te invitamos a unirte a nuestra comunidad!</h1>
+    </div>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a class="btn btn-outline-light btn-lg px-4" href="{% url "IniciarSesion" %}">Registrarse o iniciar sesión</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+{% endblock main %}

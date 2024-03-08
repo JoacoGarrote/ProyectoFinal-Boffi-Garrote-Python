@@ -8,26 +8,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
     path('about/', views.about, name="About"),
-    path('nada/', views.nada, name="Nada"),
+    path('no_page/', views.no_page, name="NoPage"),
+    path('login_requerido/', views.login_requerido, name="LoginRequerido")
 ]
 
-#Usuario
-urlpatterns += [
-    path('usuario_crear/', views.UsuarioCreateView.as_view(), name="CrearUsuario"),
-    path('usuario_lista/', views.UsuarioListView.as_view(), name="ListaUsuario"),
-    path('usuario_detalle/<int:pk>/', views.UsuarioDetailView.as_view(), name="DetalleUsuario"),
-    path('usuario_editar/<int:pk>/', views.UsuarioUpdateView.as_view(), name="EditarUsuario"),
-    path('usuario_eliminar/<int:pk>/', views.UsuarioDeleteView.as_view(), name="EliminarUsuario"),
-]
-
-#Anfitrion
-urlpatterns += [
-    path('anfitrion_crear/', views.AnfitrionCreateView.as_view(), name="CrearAnfitrion"),
-    path('anfitrion_lista/', views.AnfitrionListView.as_view(), name="ListaAnfitrion"),
-    path('anfitrion_detalle/<int:pk>/', views.AnfitrionDetailView.as_view(), name="DetalleAnfitrion"),
-    path('anfitrion_editar/<int:pk>/', views.AnfitrionUpdateView.as_view(), name="EditarAnfitrion"),
-    path('anfitrion_eliminar/<int:pk>/', views.AnfitrionDeleteView.as_view(), name="EliminarAnfitrion"),
-]
 #Eventos
 urlpatterns += [
     path('evento_crear/', views.EventoCreateView.as_view(), name="CrearEvento"),
@@ -46,10 +30,7 @@ urlpatterns += [
     path('cineastas/', views.cineastas, name="Cineastas"),
     path('deportivos/', views.deportivos, name="Deportivos"),
     path('sin_categoria/', views.sin_categoria, name="Sin_categoria"),
-<<<<<<< HEAD
-=======
     # path('eventos/categoria/<str:categoria>/', views.eventos_por_categoria, name='eventos_por_categoria'),
->>>>>>> ea575dd9510310e4de0244f85c907bc807d1fdc2
 ]
 
 #Imagenes

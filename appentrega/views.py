@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from .models import Usuario, Anfitrion, Evento, Comentario
+from .models import Evento, Comentario
 from .forms import ComentarioForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormMixin
 from django.views.generic import ListView, View
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
-from django.http import HttpResponse
 from django import forms
 
 # Create your views here.
@@ -19,63 +18,11 @@ def inicio(request):
 def about(request):
     return render(request, "appentrega/about.html")
 
-def nada(request):
+def no_page(request):
     return render(request, "appentrega/no_page.html")
 
-# Usuario
-class UsuarioCreateView(LoginRequiredMixin, CreateView):
-    model = Usuario
-    template_name = "appentrega/usuario_crear.html"
-    fields = ["nombre", "apellido", "mail"]
-    success_url = reverse_lazy("ListaUsuario")
-
-class UsuarioListView(LoginRequiredMixin, ListView):
-    model = Usuario
-    template_name = "appentrega/usuario/usuario_lista.html"
-
-class UsuarioDetailView(LoginRequiredMixin, DetailView):
-    model = Usuario
-    template_name = "appentrega/usuario/usuario_detalle.html"
-
-class UsuarioUpdateView(LoginRequiredMixin, UpdateView):
-    model = Usuario
-    success_url = reverse_lazy("ListaUsuario")
-    fields = ["nombre", "apellido", "mail"]
-    template_name = "appentrega/usuario/usuario_editar.html"
-
-class UsuarioDeleteView(LoginRequiredMixin, DeleteView):
-    model = Usuario
-    success_url = reverse_lazy("ListaUsuario")
-    template_name = 'appentrega/usuario/usuario_confdel.html'
-
-
-
-# Anfitrion
-class AnfitrionCreateView(LoginRequiredMixin, CreateView):
-    model = Anfitrion
-    template_name = "appentrega/anfitrion/anfitrion_crear.html"
-    fields = ["nombre", "apellido", "mail"]
-    success_url = reverse_lazy("ListaAnfitrion")
-
-class AnfitrionListView(LoginRequiredMixin, ListView):
-    model = Anfitrion
-    template_name = "appentrega/anfitrion/anfitrion_lista.html"
-
-class AnfitrionDetailView(LoginRequiredMixin, DetailView):
-    model = Anfitrion
-    template_name = "appentrega/anfitrion/anfitrion_detalle.html"
-
-class AnfitrionUpdateView(LoginRequiredMixin, UpdateView):
-    model = Anfitrion
-    success_url = reverse_lazy("ListaAnfitrion")
-    fields = ["nombre", "apellido", "mail"]
-    template_name = "appentrega/anfitrion/anfitrion_editar.html"
-
-class AnfitrionDeleteView(LoginRequiredMixin, DeleteView):
-    model = Anfitrion
-    success_url = reverse_lazy("ListaAnfitrion")
-    template_name = 'appentrega/anfitrion/anfitrion_confdel.html'
-
+def login_requerido(request):
+    return render(request, "appentrega/login_requerido.html")
 
 
 # Eventos
@@ -85,7 +32,7 @@ class EventoCreateView(LoginRequiredMixin, CreateView):
     template_name = "appentrega/evento/evento_crear.html"
     fields = ["nombre", "categoria", "ubicacion", "fecha", "descripcion", "imagen"]
     success_url = reverse_lazy("ListaEvento")
-    login_url = reverse_lazy("Nada")
+    login_url = reverse_lazy("LoginRequerido")
 
     widgets = {
         "categoria": forms.Select(attrs={'class': 'form-control'}),
@@ -103,6 +50,7 @@ class EventoDetailView(LoginRequiredMixin, FormMixin, DetailView):
     model = Evento
     template_name = "appentrega/evento/evento_detalle.html"
     form_class = ComentarioForm
+    login_url = reverse_lazy("LoginRequerido")
 
     def get_success_url(self):
         return self.request.path
@@ -143,35 +91,41 @@ class EventoDeleteView(LoginRequiredMixin, DeleteView):
 
 # Categorias
     
-# gastronomicos
+# Gastronomicos
+
 def gastronomicos(request):
     object_list = Evento.objects.all()
     return render(request, "appentrega/evento/categorias/gastronomicos.html", {'object_list': object_list})
 
-# corporativos
+
+# Corporativos
+
 def corporativos(request):
     object_list = Evento.objects.all()
     return render(request, "appentrega/evento/categorias/corporativos.html", {'object_list': object_list})
 
-# musicales
+# Musicales
+
 def musicales(request):
     object_list = Evento.objects.all()
     return render(request, "appentrega/evento/categorias/musicales.html", {'object_list': object_list})
 
-# cineastas
+# Cineastas
+
 def cineastas(request):
     object_list = Evento.objects.all()
     return render(request, "appentrega/evento/categorias/cineastas.html", {'object_list': object_list})
 
-#deportivos
+# Deportivos
+
 def deportivos(request):
     object_list = Evento.objects.all()
     return render(request, "appentrega/evento/categorias/deportivos.html", {'object_list': object_list})
 
-#sin categoria
+# Sin categoria
+
 def sin_categoria(request):
     object_list = Evento.objects.all()
-<<<<<<< HEAD
     return render(request, "appentrega/evento/categorias/sin_categoria.html", {'object_list': object_list})
 
 # Comentario
@@ -180,6 +134,5 @@ class EliminarComentarioView(View):
         comentario = get_object_or_404(Comentario, pk=comentario_id)
         comentario.delete()
         return redirect(request.META.get('HTTP_REFERER'))
-=======
-    return render(request, "appentrega/evento/categorias/sin_categoria.html", {'object_list': object_list})
->>>>>>> ea575dd9510310e4de0244f85c907bc807d1fdc2
+
+      

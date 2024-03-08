@@ -10826,42 +10826,13 @@ textarea.form-control-lg {
 }
 
 /* INDEX */
-
-/* .index-body-bg {
-  /* background: url("../assets/img/bg1.jpg") no-repeat center center fixed; */
-   
-/* .index-body-bg, .index-html {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-} */
-/* .full-height-section {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-} */
-
-.video-text {
+.raleway-font {
   font-family: 'Raleway', sans-serif;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  text-align: center;
-  z-index: 1;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.7);
-  border-top-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-  backdrop-filter: blur(1px);
-  font-size: 3em;
-   
 }
-.fullscreen-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+.bg-gradient {
+  background: linear-gradient(to right, #ffcc00, #ff6699); /* Colores de ejemplo, ajusta según tus preferencias */
+  border-radius: 20px;
 }
 
 .profile-picture {
@@ -10873,4 +10844,38 @@ textarea.form-control-lg {
   height: 200px;
 }
 
- 
+.feature {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  font-size: 2rem;
+} 
+
+/* CARTAS EVENTOS */
+.custom-card {
+  background-color: #f8f9fa;
+}
+
+.custom-card .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.custom-card .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.custom-card {
+  padding: 20px;
+}
+
+.custom-card .card-title {
+  font-size: 24px;
+}
+
+.custom-card .card-text {
+  font-size: 16px;
+  line-height: 1.6;
+}

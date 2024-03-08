@@ -39,7 +39,7 @@
                     <div class="card-body">
                         <p class="fs-6 mb-4">Soy un apasionado de los eventos y la creatividad. Siempre estoy buscando nuevas experiencias que me inspiren y me permitan conectar con personas de ideas afines. Desde festivales de música hasta eventos culturales y conferencias, me encanta explorar y participar en eventos que despierten mi curiosidad y me hagan sentir parte de algo más grande.</p>
                         <div class="text-center">
-                            <a href="#contacto" class="btn btn-outline-dark px-3">Contacto</a>
+                            <a href="https://github.com/Bofficito" class="btn btn-outline-dark px-3">Contacto</a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <p class="fs-6 mb-5">Me considero un aventurero de los eventos, siempre en búsqueda de experiencias que despierten mis sentidos y alimenten mi alma. Desde festivales coloridos hasta eventos culturales llenos de historia, cada encuentro es una oportunidad para sumergirme en nuevas emociones y descubrir la diversidad del mundo que nos rodea.</p>
                         <div class="text-center">
-                            <a href="#contacto" class="btn btn-outline-dark px-3">Contacto</a>
+                            <a href="https://github.com/JoacoGarrote" class="btn btn-outline-dark px-3">Contacto</a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                                 Estadisticas mensuales.
                             </li>
                         </ul>
-                        <div class="d-grid"><a class="btn btn-outline-primary" href="{% url "Nada" %}">Elegir plan</a></div>
+                        <div class="d-grid"><a class="btn btn-outline-primary" href="{% url "NoPage" %}">Elegir plan</a></div>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                                 Estadisticas mensuales.
                             </li>
                         </ul>
-                        <div class="d-grid"><a class="btn btn-primary" href="{% url "Nada" %}">Elegir plan</a></div>
+                        <div class="d-grid"><a class="btn btn-primary" href="{% url "NoPage" %}">Elegir plan</a></div>
                     </div>
                 </div>
             </div>
@@ -214,24 +214,25 @@
                                 Estadisticas mensuales.
                             </li>
                         </ul>
-                        <div class="d-grid"><a class="btn btn-outline-primary" href="{% url "Nada" %}">Elegir plan</a></div>
+                        <div class="d-grid"><a class="btn btn-outline-primary" href="{% url "NoPage" %}">Elegir plan</a></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Testimonials section-->
 <section class="bg-dark py-5 border-bottom">
     <div class="container px-5 my-5 px-5">
         <div class="text-center mb-5">
             <h2 class="fw-bolder text-white">Testimonios de clientes</h2>
-            <p class="lead mb-0 text-white" >Todos nuestros clientes son importantes, sin importar el tamaño de su evento o su trayectoria.</p>
+            <p class="lead mb-0 text-white">Todos nuestros clientes son importantes, sin importar el tamaño de su evento o su trayectoria.</p>
         </div>
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <!-- Testimonial 1-->
-                <div class="card mb-4">
+                <div class="card mb-4 card-equal-height">
                     <div class="card-body p-4">
                         <div class="d-flex">
                             <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
@@ -243,7 +244,7 @@
                     </div>
                 </div>
                 <!-- Testimonial 2-->
-                <div class="card">
+                <div class="card card-equal-height">
                     <div class="card-body p-4">
                         <div class="d-flex">
                             <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
@@ -258,6 +259,7 @@
         </div>
     </div>
 </section>
+
 <!-- Contact section-->
 <section class="bg-light py-5" id="contacto">
     <div class="container px-5 my-5 px-5">
@@ -307,7 +309,7 @@
                     <!-- Submit Button-->
                     <div class="d-grid">
                         <div class="d-grid">
-                            <a class="btn btn-primary" href="{% url "Nada" %}">Enviar</a>
+                            <a class="btn btn-primary" href="{% url "NoPage" %}">Enviar</a>
                         </div>
                     </div>
                 </form>

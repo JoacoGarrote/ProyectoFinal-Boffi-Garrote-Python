@@ -5,15 +5,6 @@ import pytz
 
 # Create your models here.
 
-class Usuario(models.Model):
-    nombre = models.CharField(max_length=40)
-    apellido = models.CharField(max_length=40)
-    mail = models.CharField(max_length=40)
-    
-class Anfitrion(models.Model):
-    nombre = models.CharField(max_length=40)
-    apellido = models.CharField(max_length=40)
-    mail = models.CharField(max_length=40)
 
 class Evento(models.Model):
     nombre = models.CharField(max_length=40)
